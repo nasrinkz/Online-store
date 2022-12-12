@@ -14,5 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.index');
+})->name('home');
+Route::get('/account', function () {
+    return view('pages.account');
+});
+Route::get('/thankYou', function () {
+    return view('pages.UserAccount.thankyou');
+});
+Route::get('/cart', function () {
+    return view('pages.UserAccount.wishlist');
 });
