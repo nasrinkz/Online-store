@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('product_colors', function (Blueprint $table) {
             $table->id();
-            $table->string('FullName')->nullable();
-            $table->string('email')->unique();
-            $table->enum('status',[0,1])->default(1);
-            $table->string('password')->nullable();
-            $table->rememberToken();
+            $table->foreignId('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('color_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('number')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('product_colors');
     }
 };

@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('user_addresses', function (Blueprint $table) {
             $table->id();
-            $table->string('FullName')->nullable();
-            $table->string('email')->unique();
-            $table->enum('status',[0,1])->default(1);
-            $table->string('password')->nullable();
-            $table->rememberToken();
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->string('address')->nullable();
+            $table->string('zipCode')->nullable();
+            $table->integer('provinceId')->nullable();
+            $table->integer('cityId')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('user_addresses');
     }
 };

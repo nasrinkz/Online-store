@@ -67,14 +67,14 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label class="text-black" for="fname">First name</label>
+                                                <label class="text-black" for="fname">Full Name</label>
                                                 <input type="text" class="form-control" id="fname">
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label class="text-black" for="lname">Last name</label>
-                                                <input type="text" class="form-control" id="lname">
+                                                <label class="text-black" for="fname">Number</label>
+                                                <input type="tel" class="form-control" id="number">
                                             </div>
                                         </div>
                                     </div>

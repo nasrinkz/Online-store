@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('pages.index');
 })->name('home');
 Route::get('/account', function () {
-    return view('pages.account');
+    return view('pages.contact-us');
 });
 Route::get('/thankYou', function () {
     return view('pages.UserAccount.thankyou');
