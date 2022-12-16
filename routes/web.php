@@ -25,3 +25,6 @@ Route::get('/thankYou', function () {
 Route::get('/cart', function () {
     return view('pages.UserAccount.wishlist');
 });
+Route::get('/admin2', function () {
+    return view('admin.pages.index');
+});
