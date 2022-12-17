@@ -28,3 +28,7 @@ Route::get('/cart', function () {
 Route::get('/admin2', function () {
     return view('admin.pages.index');
 });
+
+Route::get('/', function () {
+    return view('pages.index');
+})->name('home');

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->enum('status',[0,1])->default(1);
             $table->string('password')->nullable();
+            $table->foreignId('user_group_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });
