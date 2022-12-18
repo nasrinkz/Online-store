@@ -13901,3 +13901,6 @@ footer {
     font-size: 14px;
     color: #353a41;
 }
+.error-text{
+    font-size: small;
+}

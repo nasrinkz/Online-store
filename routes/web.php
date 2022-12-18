@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +29,10 @@ Route::get('/admin2', function () {
     return view('admin.pages.index');
 });
 
-Route::get('/', function () {
-    return view('pages.index');
-})->name('home');
+Route::get('/account', [UserController::class,'index'])->name('account');
+Route::post('/UserAccount', [UserController::class,'store'])->name('UserAccount');
+Route::post('/login', [UserController::class,'login'])->name('login');
+Route::get('/logout', [UserController::class,'logout'])->name('logout');
+Route::group(['namespace'=>'UserAccount','middleware'=>'checkUserLogin'],function () {
+    Route::get('/UserDashboard', [UserController::class,'dashboard'])->name('UserDashboard');
+});

@@ -28,7 +28,7 @@
                                 <li class="list-inline-item"><a href="wishlist.blade.php">My wishlist</a></li>
                                 <li class="list-inline-item"><a href="cart.blade.php">My cart</a></li>
                                 <li class="list-inline-item"><a href="order.blade.php">Order</a></li>
-                                <li class="list-inline-item"><a href="account.html" class="mr-0">Log-out</a></li>
+                                <li class="list-inline-item"><a href="{{route('logout')}}" class="mr-0">Log-out</a></li>
                             </ul>
                         </div>
                         <!-- Dashboard-Nav  End-->
