@@ -34,5 +34,7 @@ Route::post('/UserAccount', [UserController::class,'store'])->name('UserAccount'
 Route::post('/login', [UserController::class,'login'])->name('login');
 Route::get('/logout', [UserController::class,'logout'])->name('logout');
 Route::group(['namespace'=>'UserAccount','middleware'=>'checkUserLogin'],function () {
-    Route::get('/UserDashboard', [UserController::class,'dashboard'])->name('UserDashboard');
+    Route::get('/UserDashboard', [UserController::class,'show'])->name('show');
+    Route::put('/UpdateProfile', [UserController::class,'update'])->name('UpdateProfile');
+    Route::put('/UpdatePassword', [UserController::class,'updatePassword'])->name('UpdatePassword');
 });

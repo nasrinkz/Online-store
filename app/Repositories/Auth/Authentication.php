@@ -54,6 +54,44 @@ class Authentication implements IAuthentication
         return $status;
     }
 
+    public function show()
+    {
+        return User::find(ucfirst(Auth()->user()->id));
+    }
+
+    public function update($request){
+        $request->validate([
+            'FullName' => 'required',
+            'email' => 'required|email|unique:users,email,'. ucfirst(Auth()->user()->id),
+        ]);
+        $user = User::find(ucfirst(Auth()->user()->id));
+        $request->all();
+        $user->FullName = $request->FullName;
+        $user->email=$request->email;
+        $user->user_group_id = $request->user_group_id;
+        $status = $user->isDirty() ? 1 : 0; //0 means nothing changed
+        $user->save();
+        return $status;
+    }
+
+    public function updatePassword($request){
+        $request->validate([
+            'currentPassword' => [
+                'required', function ($attribute,$value, $fail) {
+                    if (!Hash::check($value, Auth::user()->password)) {
+                        $fail('Current Password didn\'t match');
+                    }
+                },
+            ],
+            'newPassword' => 'required|string|min:6|different:currentPassword',
+            'password_confirmation' => 'required|same:newPassword'
+        ]);
+        $user = User::find(ucfirst(Auth()->user()->id));
+        $user->fill([
+        'password' => Hash::make($request->newPassword)
+        ])->save();
+    }
+
     public function logout() {
         Session::flush();
         Auth::logout();

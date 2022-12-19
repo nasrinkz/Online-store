@@ -74,7 +74,7 @@
                             @if($errors->has('password_confirmation'))
                                 <span class="error-text text-danger">{{$errors->first('password_confirmation')}}</span>
                             @endif
-                            <input type="hidden" class="form__input" name="user_group_id" value="2" placeholder=" ">
+                            <input type="hidden" name="user_group_id" value="2">
                             <div class="form__div mb-0  mt-15">
                                 <button type="submit" class="btn bg-primary">Sign Up</button>
                             </div>
