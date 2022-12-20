@@ -5,7 +5,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3" style="text-align: center!important;">
             <div class="info" style="text-align: center!important;">
-                <a href="#" class="d-block">Nika Kazemi</a>
+                <a href="{{route('Profile')}}" class="d-block">{{auth()->user()->FullName}}</a>
             </div>
         </div>
         <!-- Sidebar Menu -->

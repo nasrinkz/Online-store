@@ -26,7 +26,7 @@ class UserController extends Controller
     {
        $this->authenticationRepo->validateRegistration($request);
        $groupId=ucfirst(Auth()->user()->user_group_id);
-       return ($groupId == 1) ? view('admin.pages.index'): redirect()->route('show');
+       return ($groupId == 1) ? redirect()->route('AdminDashboard'): redirect()->route('UserDashboard');
     }
 
     public function show()
@@ -38,7 +38,13 @@ class UserController extends Controller
     public function login(Request $request)
     {
         $status=$this->authenticationRepo->login($request);
-        return ($status == 1) ? redirect()->route('show') : redirect('account')->withSuccess('Invalid login details!');
+        if ($status==1){
+            return redirect()->route('AdminDashboard');
+        }elseif ($status==2){
+            return redirect()->route('UserDashboard');
+        }else{
+            return redirect('account')->withSuccess('Invalid login details!');
+        }
     }
 
     public function logout()
@@ -57,7 +63,6 @@ class UserController extends Controller
     {
         $this->authenticationRepo->updatePassword($request);
         return back()->withSuccess('Your password successfully updated.');
-
     }
 
     public function destroy($id)

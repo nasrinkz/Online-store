@@ -47,7 +47,11 @@ class Authentication implements IAuthentication
         ]);
 //        $credentials = $req->only('username', 'password');
         if (Auth::attempt(['email' => $request->loginEmail, 'password' => $request->loginPassword],$request->remember)) {
-            $status=1;
+            if (Auth::user()->user_group_id==1){
+                $status=1;
+            }else{
+                $status=2;
+            }
         }else{
             $status=0;
         }

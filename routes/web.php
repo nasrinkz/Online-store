@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,7 +35,13 @@ Route::post('/UserAccount', [UserController::class,'store'])->name('UserAccount'
 Route::post('/login', [UserController::class,'login'])->name('login');
 Route::get('/logout', [UserController::class,'logout'])->name('logout');
 Route::group(['namespace'=>'UserAccount','middleware'=>'checkUserLogin'],function () {
-    Route::get('/UserDashboard', [UserController::class,'show'])->name('show');
+    Route::get('/UserDashboard', [UserController::class,'show'])->name('UserDashboard');
     Route::put('/UpdateProfile', [UserController::class,'update'])->name('UpdateProfile');
     Route::put('/UpdatePassword', [UserController::class,'updatePassword'])->name('UpdatePassword');
+});
+Route::group(['namespace'=>'admin/pages','middleware'=>'checkAdminLogin'],function () {
+    Route::get('/AdminDashboard', [AdminController::class,'index'])->name('AdminDashboard');
+    Route::get('/AdminDashboard/Profile', [AdminController::class,'show'])->name('Profile');
+    Route::put('/AdminDashboard/UpdateProfile', [AdminController::class,'update'])->name('UpdateAdminProfile');
+    Route::put('/AdminDashboard/UpdatePassword', [AdminController::class,'updatePassword'])->name('UpdateAdminPassword');
 });
