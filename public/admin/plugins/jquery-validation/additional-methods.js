@@ -184,8 +184,8 @@ $.validator.addMethod( "bic", function( value, element ) {
  * Where:
  *
  * T: 1 character. Kind of Organization Letter: [ABCDEFGHJKLMNPQRSUVW]
- * P: 2 characters. Province.
- * N: 5 characters. Secuencial Number within the province.
+ * P: 2 characters. Provinces.
+ * N: 5 characters. Secuencial Number within the provinces.
  * C: 1 character. Control Digit: [0-9A-J].
  *
  * [ T ]: Kind of Organizations. Possible values:

@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ProvinceController;
+use App\Http\Controllers\Admin\CityController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,4 +46,11 @@ Route::group(['namespace'=>'admin/pages','middleware'=>'checkAdminLogin'],functi
     Route::get('/AdminDashboard/Profile', [AdminController::class,'show'])->name('Profile');
     Route::put('/AdminDashboard/UpdateProfile', [AdminController::class,'update'])->name('UpdateAdminProfile');
     Route::put('/AdminDashboard/UpdatePassword', [AdminController::class,'updatePassword'])->name('UpdateAdminPassword');
+    Route::get('/AdminDashboard/Provinces', [ProvinceController::class,'index'])->name('ProvincesList');
+    Route::post('/AdminDashboard/AddProvince', [ProvinceController::class,'store'])->name('AddProvince');
+    Route::get('/AdminDashboard/DeleteProvince/{id}', [ProvinceController::class,'destroy'])->name('DestroyProvince');
+    Route::get('/AdminDashboard/ChangeProvinceStatus/{id}/{status}', [ProvinceController::class,'editStatus'])->name('ChangeProvinceStatus');
+    Route::get('/AdminDashboard/EditProvince/{id}', [ProvinceController::class,'edit'])->name('EditProvince');
+    Route::put('/AdminDashboard/UpdateProvince/{id}', [ProvinceController::class,'update'])->name('UpdateProvince');
+
 });

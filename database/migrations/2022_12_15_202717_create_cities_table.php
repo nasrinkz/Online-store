@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
+            $table->enum('status',[0,1])->default(1);
             $table->foreignId('province_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
