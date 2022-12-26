@@ -53,4 +53,11 @@ Route::group(['namespace'=>'admin/pages','middleware'=>'checkAdminLogin'],functi
     Route::get('/AdminDashboard/EditProvince/{id}', [ProvinceController::class,'edit'])->name('EditProvince');
     Route::put('/AdminDashboard/UpdateProvince/{id}', [ProvinceController::class,'update'])->name('UpdateProvince');
 
+    Route::get('/AdminDashboard/Cities', [CityController::class,'index'])->name('CitiesList');
+    Route::post('/AdminDashboard/AddCity', [CityController::class,'store'])->name('AddCity');
+    Route::get('/AdminDashboard/DeleteCity/{id}', [CityController::class,'destroy'])->name('DestroyCity');
+    Route::get('/AdminDashboard/ChangeCityStatus/{id}/{status}', [CityController::class,'editStatus'])->name('ChangeCityStatus');
+    Route::get('/AdminDashboard/EditCity/{id}', [CityController::class,'edit'])->name('EditCity');
+    Route::put('/AdminDashboard/UpdateCity/{id}', [CityController::class,'update'])->name('UpdateCity');
+
 });

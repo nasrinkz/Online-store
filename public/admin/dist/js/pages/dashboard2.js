@@ -161,7 +161,7 @@ $(function () {
   //   markers          : [
   //     {
   //       latLng: [41.90, 12.45],
-  //       name  : 'Vatican City'
+  //       name  : 'Vatican Cities'
   //     },
   //     {
   //       latLng: [43.73, 7.41],

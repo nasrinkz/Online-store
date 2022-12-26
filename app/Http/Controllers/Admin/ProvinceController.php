@@ -21,22 +21,21 @@ class ProvinceController extends Controller
         $values = $data[0];
         $dataTableInfo = $data[1];
         if($request->ajax()){
-            return view('admin.pages.provinces.getProvincesData ',['values'=>$values,'dataTableInfo'=>$dataTableInfo]);
+            return view('admin.pages.provinces.getProvincesData', compact('values','dataTableInfo'));
         }
-        return view('admin.pages.provinces.provinces ',['values'=>$values,'dataTableInfo'=>$dataTableInfo]);
-
+        return view('admin.pages.provinces.provinces', compact('values','dataTableInfo'));
     }
 
     public function store(Request $request)
     {
         $this->provinces->validate($request);
-        return back()->with(['success' => 'New provinces successfully added.']);
+        return back()->with(['success' => 'New city successfully added.']);
     }
 
     public function destroy($id)
     {
         $this->provinces->delete($id);
-        return back()->with(['success' => 'Selected provinces successfully deleted.']);
+        return back()->with(['delete' => 'Selected province successfully deleted.']);
     }
 
     public function editStatus($id, $status)

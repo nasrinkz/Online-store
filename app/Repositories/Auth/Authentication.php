@@ -41,9 +41,9 @@ class Authentication implements IAuthentication
             'loginEmail' => 'required|email',
             'loginPassword' => 'required',
         ], [
-            'loginEmail.required' => 'Email field is required.',
-            'loginPassword.required' => 'Password field is required.',
-            'loginEmail.email' => 'Email field must be email address.',
+            'loginEmail.required' => 'The email field is required.',
+            'loginPassword.required' => 'The password field is required.',
+            'loginEmail.email' => 'The email field must be email address.',
         ]);
 //        $credentials = $req->only('username', 'password');
         if (Auth::attempt(['email' => $request->loginEmail, 'password' => $request->loginPassword],$request->remember)) {

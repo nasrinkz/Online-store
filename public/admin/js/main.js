@@ -36,6 +36,8 @@ function changeShow(placeholder) {
 }
 
 $(function() {
+    $('.select2').select2();
+
     $(document).on("click", "#pagination a,#search_btn", function() {
         //get url and make final url for ajax
         var url = $(this).attr("href");

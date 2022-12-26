@@ -10,3 +10,13 @@
 .preloader{
     display:none !important;
 }
+.search-btn{
+    display: inline-block;
+    margin-bottom: 3px;
+}
+.input-group-prepend~.select2-container--default .select2-selection{
+    height: auto;
+}
+.select2-container,.city-status{
+    width: 85% !important;
+}

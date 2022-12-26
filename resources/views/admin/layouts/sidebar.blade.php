@@ -33,13 +33,13 @@
                         <li class="nav-item">
                             <a href="{{route('ProvincesList')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Province</p>
+                                <p>Provinces</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                            <a href="{{route('CitiesList')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>City</p>
+                                <p>Cities</p>
                             </a>
                         </li>
                     </ul>

@@ -25,11 +25,16 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        @if(Session::has('success'))
-                            <div class="alert alert-success">
-                                {{Session::get('success')}}
-                            </div>
-                        @endif
+                            @if(Session::has('success'))
+                                <div class="alert alert-success">
+                                    {{Session::get('success')}}
+                                </div>
+                            @endif
+                            @if(Session::has('delete'))
+                                <div class="alert alert-success">
+                                    {{Session::get('delete')}}
+                                </div>
+                            @endif
                     </div>
                     <div class="col-lg-12">
                         <div class="card">
@@ -49,11 +54,11 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text search-table-span">Search by title: </span>
                                                         </div>
-                                                        <input type="text" name="title" class="search-input form-control" value="{{request()->get('title','')}}" placeholder="Search by Title" />
+                                                        <input type="text" required name="title" class="search-input form-control" value="{{request()->get('title','')}}" placeholder="Search by Title" />
                                                     </div>
                                                     @csrf
                                                 </div>
-                                                <a class='btn btn-success' style="display: inline-block;margin-bottom: 3px;" href='{{route("ProvincesList")}}' id='search_btn'>Search</a>
+                                                <a class='btn btn-success search-btn' href='{{route("ProvincesList")}}' id='search_btn'>Search</a>
                                             </form>
                                         </div>
                                         <div id="pagination_data">
@@ -72,7 +77,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text">T</span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="title" placeholder="Title">
+                                                    <input type="text" class="form-control" required name="title" placeholder="Title">
                                                 </div>
                                                 @if($errors->has('title'))
                                                     <span class="error-text text-danger">{{$errors->first('title')}}</span>
@@ -81,7 +86,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text">S</span>
                                                     </div>
-                                                    <select class="form-control" name="status">
+                                                    <select class="form-control" required name="status">
                                                         <option selected value="" disabled>Choose status</option>
                                                         <option value="1">Enable</option>
                                                         <option value="0">Disable</option>
