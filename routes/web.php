@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProvinceController;
 use App\Http\Controllers\Admin\CityController;
+use App\Http\Controllers\Admin\UserGroupController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,18 +20,6 @@ use App\Http\Controllers\Admin\CityController;
 Route::get('/', function () {
     return view('pages.index');
 })->name('home');
-Route::get('/account', function () {
-    return view('pages.contact-us');
-});
-Route::get('/thankYou', function () {
-    return view('pages.UserAccount.thankyou');
-});
-Route::get('/cart', function () {
-    return view('pages.UserAccount.wishlist');
-});
-Route::get('/admin2', function () {
-    return view('admin.pages.index');
-});
 
 Route::get('/account', [UserController::class,'index'])->name('account');
 Route::post('/UserAccount', [UserController::class,'store'])->name('UserAccount');
@@ -46,6 +35,7 @@ Route::group(['namespace'=>'admin/pages','middleware'=>'checkAdminLogin'],functi
     Route::get('/AdminDashboard/Profile', [AdminController::class,'show'])->name('Profile');
     Route::put('/AdminDashboard/UpdateProfile', [AdminController::class,'update'])->name('UpdateAdminProfile');
     Route::put('/AdminDashboard/UpdatePassword', [AdminController::class,'updatePassword'])->name('UpdateAdminPassword');
+
     Route::get('/AdminDashboard/Provinces', [ProvinceController::class,'index'])->name('ProvincesList');
     Route::post('/AdminDashboard/AddProvince', [ProvinceController::class,'store'])->name('AddProvince');
     Route::get('/AdminDashboard/DeleteProvince/{id}', [ProvinceController::class,'destroy'])->name('DestroyProvince');
@@ -60,4 +50,5 @@ Route::group(['namespace'=>'admin/pages','middleware'=>'checkAdminLogin'],functi
     Route::get('/AdminDashboard/EditCity/{id}', [CityController::class,'edit'])->name('EditCity');
     Route::put('/AdminDashboard/UpdateCity/{id}', [CityController::class,'update'])->name('UpdateCity');
 
+    Route::get('/AdminDashboard/UserGroups', [UserGroupController::class,'index'])->name('UserGroupsList');
 });

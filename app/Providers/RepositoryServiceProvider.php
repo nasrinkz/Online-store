@@ -8,6 +8,8 @@ use App\Repositories\City\Cities;
 use App\Repositories\City\ICities;
 use App\Repositories\Province\IProvinces;
 use App\Repositories\Province\Provinces;
+use App\Repositories\UserGroups\IUserGroups;
+use App\Repositories\UserGroups\UserGroups;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -22,6 +24,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(IAuthentication::class,Authentication::class);
         $this->app->bind(IProvinces::class,Provinces::class);
         $this->app->bind(ICities::class,Cities::class);
+        $this->app->bind(IUserGroups::class,UserGroups::class);
     }
 
     /**

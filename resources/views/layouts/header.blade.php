@@ -151,7 +151,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="@if(Auth::check()) {{route('show')}} @else {{route('account')}}@endif"><svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                    <a href="@if(Auth::check()) @if(auth()->user()->user_group_id==1){{route('AdminDashboard')}} @else {{route('UserDashboard')}} @endif @else {{route('account')}}@endif"><svg xmlns="http://www.w3.org/2000/svg" width="18"
                                             height="20" viewBox="0 0 18 20">
                                             <g id="Account" transform="translate(1 1)">
                                                 <path id="Path_86" data-name="Path 86"
