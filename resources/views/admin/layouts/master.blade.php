@@ -95,6 +95,7 @@
 <script src="{{asset('admin/dist/js/pages/dashboard.js')}}"></script>
 <!-- Select2 -->
 <script src="{{asset('admin/plugins/select2/js/select2.full.min.js')}}"></script>
+
 <script src="{{asset('admin/js/main.js')}}"></script>
 </body>
 </html>

@@ -12,4 +12,9 @@ class City extends Model
     {
         return $this->belongsTo(Province::class,'province_id');
     }
+
+    public function address()
+    {
+        return $this->hasMany(UserAddress::class,'city_id');
+    }
 }

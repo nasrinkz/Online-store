@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\Auth\IAuthentication;
+use App\Repositories\User\IUsers;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    private IAuthentication $authenticationRepo;
+    private IUsers $authenticationRepo;
 
-    public function __construct(IAuthentication $authenticationRepo)
+    public function __construct(IUsers $authenticationRepo)
     {
         $this->authenticationRepo=$authenticationRepo;
     }

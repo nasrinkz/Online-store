@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Repositories\Auth\IAuthentication;
+use App\Repositories\User\IUsers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class AuthenticationController extends Controller
 {
-    private IAuthentication $authenticationRepo;
+    private IUsers $authenticationRepo;
 
-    public function __construct(IAuthentication $authenticationRepo)
+    public function __construct(IUsers $authenticationRepo)
     {
         $this->authenticationRepo=$authenticationRepo;
     }
@@ -24,7 +21,7 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-       $this->authenticationRepo->validateRegistration($request);
+       $this->authenticationRepo->validation($request);
        $groupId=ucfirst(Auth()->user()->user_group_id);
        return ($groupId == 1) ? redirect()->route('AdminDashboard'): redirect()->route('UserDashboard');
     }
@@ -65,18 +62,4 @@ class UserController extends Controller
         return back()->withSuccess('Your password successfully updated.');
     }
 
-    public function destroy($id)
-    {
-        //
-    }
-
-    public function create()
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
 }

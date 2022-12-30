@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Auth;
+namespace App\Repositories\User;
 
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Session;
 
-class Authentication implements IAuthentication
+class Authentication implements IUsers
 {
 
-    function validateRegistration($request)
+    function validation($request)
     {
         $request->validate([
             'FullName' => 'required',
@@ -63,7 +63,7 @@ class Authentication implements IAuthentication
         return User::find(ucfirst(Auth()->user()->id));
     }
 
-    public function update($request){
+    public function update($request,$id=null){
         $request->validate([
             'FullName' => 'required',
             'email' => 'required|email|unique:users,email,'. ucfirst(Auth()->user()->id),

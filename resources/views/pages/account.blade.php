@@ -61,20 +61,21 @@
                                 <span class="error-text text-danger">{{$errors->first('email')}}</span>
                             @endif
                             <div class="form__div mb-0 mt-15">
-                                <input type="password" class="form__input" required minlength="6" name="password" placeholder=" ">
+                                <input type="password" class="form__input" required minlength="6" name="password" autocomplete="new-password" />
                                 <label for="" class="form__label">Password</label>
                             </div>
                             @if($errors->has('password'))
                                 <span class="error-text text-danger">{{$errors->first('password')}}</span>
                             @endif
                             <div class="form__div mb-0 mt-15">
-                                <input type="password" class="form__input" required minlength="6" name="password_confirmation" placeholder=" ">
+                                <input type="password" class="form__input" required minlength="6" name="password_confirmation">
                                 <label for="" class="form__label">Password Confirmation</label>
                             </div>
                             @if($errors->has('password_confirmation'))
                                 <span class="error-text text-danger">{{$errors->first('password_confirmation')}}</span>
                             @endif
                             <input type="hidden" name="user_group_id" value="2">
+                            <input type="hidden" name="status" value="1">
                             <div class="form__div mb-0  mt-15">
                                 <button type="submit" class="btn bg-primary">Sign Up</button>
                             </div>

@@ -4,17 +4,17 @@ $("document").ready(function(){
     }, 7000 ); // 7 secs
 
 });
-// $(function () {
-//     $('#example1').DataTable({
-//         "paging": false,
-//         "lengthChange": false,
-//         "searching": false,
-//         "ordering": true,
-//         "info": false,
-//         "autoWidth": false,
-//         "responsive": true,
-//     });
-// });
+$(function () {
+    $('#example1').DataTable({
+        "paging": false,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": false,
+        "info": false,
+        "autoWidth": false,
+        "responsive": true,
+    });
+});
 function changeShow(placeholder) {
         var nextStatus = $(placeholder).attr('id');
         $.ajax({
@@ -56,3 +56,29 @@ $(function() {
     })
 });
 
+$(document).ready(function() {
+    $('#province').on('change', function () {
+        var provinceID = $(this).val();
+        if (provinceID) {
+            $.ajax({
+                url: '/AdminDashboard/FetchCity/' + provinceID,
+                type: "GET",
+                data: {"_token": "{{ csrf_token() }}"},
+                dataType: "json",
+                success: function (data) {
+                    if (data) {
+                        $('#city').empty();
+                        $('#city').append('<option value="" disabled selected>Select city</option>');
+                        $.each(data, function (key, course) {
+                            $('select[name="city_id"]').append('<option value="' + key + '">' + course.title + '</option>');
+                        });
+                    } else {
+                        $('#city').append('<option value="" disabled selected>Select city</option>');
+                    }
+                }
+            });
+        } else {
+            $('#city').empty();
+        }
+    });
+});
