@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthenticationController;
 use App\Repositories\User\IUsers;
@@ -25,7 +26,7 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->when([AdminController::class,AuthenticationController::class])->needs(IUsers::class)->give(function () {
+        $this->app->when([AdminController::class,AuthenticationController::class,ProfileController::class])->needs(IUsers::class)->give(function () {
                 return new Authentication();
             });
         $this->app->when(UserController::class)->needs(IUsers::class)->give(function () {

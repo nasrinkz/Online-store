@@ -147,24 +147,4 @@ class Users implements IUsers
         $data->save();
         return $status;
     }
-
-    function login($request)
-    {
-        // TODO: Implement login() method.
-    }
-
-    function show()
-    {
-        // TODO: Implement show() method.
-    }
-
-    function updatePassword($request)
-    {
-        // TODO: Implement updatePassword() method.
-    }
-
-    function logout()
-    {
-        // TODO: Implement logout() method.
-    }
 }

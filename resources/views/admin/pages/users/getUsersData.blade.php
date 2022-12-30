@@ -27,8 +27,8 @@
             <td>{{$value->userGroup->role}}</td>
             <td><a href="javascript:" id="{{$next_status}}" rel="{{url('AdminDashboard/ChangeUserStatus',$value->id)}}/" onClick="changeShow(this);">@if($value->status== 1)<i id="{{$value->id}}" class='fa fa-check text-success'> Enable</i> @else <i id="{{$value->id}}" class='fa fa-ban text-danger'> Disable</i>@endif </a></td>
             <td><a href="{{route('EditUser',$value->id)}}"><i class="fa fa-edit text-primary" title="Edit"></i> </a>
-                <a href="{{route('EditUserAddress',$value->id)}}"><i class="fa fa-map-marked text-primary" title="Address"></i> </a>
-                <a href="{{route('DestroyUser',$value->id)}}"><i class="fa fa-trash text-danger" title="Delete"></i> </a>
+                <a href="{{route('EditUserAddress',$value->id)}}"><i class="fa fa-map-marked text-info" title="Address"></i> </a>
+{{--                <a href="{{route('DestroyUser',$value->id)}}"><i class="fa fa-trash text-danger" title="Delete"></i> </a>--}}
             </td>
         </tr>
         @php($num++)

@@ -10,7 +10,6 @@ use Session;
 
 class Authentication implements IUsers
 {
-
     function validation($request)
     {
         $request->validate([
