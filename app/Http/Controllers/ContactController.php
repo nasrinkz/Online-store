@@ -21,7 +21,7 @@ class ContactController extends Controller
 
     public function store(Request $request){
         $this->contact->validate($request);
-        return back()->with(['success' => 'Your message successfully send.']);
+        return back()->with(['success' => 'Thanks for your message! We will get back to you soon!']);
     }
 
 }
