@@ -231,7 +231,7 @@
                                                 <!-- /.contacts-list-info -->
                                             </a>
                                         </li>
-                                        <!-- End Contact Item -->
+                                        <!-- End ContactUs Item -->
                                         <li>
                                             <a href="#">
                                                 <img class="contacts-list-img" src="dist/img/user7-128x128.jpg" alt="User Avatar">
@@ -246,7 +246,7 @@
                                                 <!-- /.contacts-list-info -->
                                             </a>
                                         </li>
-                                        <!-- End Contact Item -->
+                                        <!-- End ContactUs Item -->
                                         <li>
                                             <a href="#">
                                                 <img class="contacts-list-img" src="dist/img/user3-128x128.jpg" alt="User Avatar">
@@ -261,7 +261,7 @@
                                                 <!-- /.contacts-list-info -->
                                             </a>
                                         </li>
-                                        <!-- End Contact Item -->
+                                        <!-- End ContactUs Item -->
                                         <li>
                                             <a href="#">
                                                 <img class="contacts-list-img" src="dist/img/user5-128x128.jpg" alt="User Avatar">
@@ -276,7 +276,7 @@
                                                 <!-- /.contacts-list-info -->
                                             </a>
                                         </li>
-                                        <!-- End Contact Item -->
+                                        <!-- End ContactUs Item -->
                                         <li>
                                             <a href="#">
                                                 <img class="contacts-list-img" src="dist/img/user6-128x128.jpg" alt="User Avatar">
@@ -291,7 +291,7 @@
                                                 <!-- /.contacts-list-info -->
                                             </a>
                                         </li>
-                                        <!-- End Contact Item -->
+                                        <!-- End ContactUs Item -->
                                         <li>
                                             <a href="#">
                                                 <img class="contacts-list-img" src="dist/img/user8-128x128.jpg" alt="User Avatar">
@@ -306,7 +306,7 @@
                                                 <!-- /.contacts-list-info -->
                                             </a>
                                         </li>
-                                        <!-- End Contact Item -->
+                                        <!-- End ContactUs Item -->
                                     </ul>
                                     <!-- /.contacts-list -->
                                 </div>

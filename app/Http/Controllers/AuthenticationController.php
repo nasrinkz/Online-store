@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Repositories\User\IUsers;
 use Illuminate\Http\Request;
 
@@ -30,6 +31,8 @@ class AuthenticationController extends Controller
     {
         $status = $this->authenticationRepo->login($request);
         if ($status == 1) {
+            $messagesCount = Contact::whereStatus('unread')->count();
+            session(['messagesCount' => $messagesCount]);
             return redirect()->route('AdminDashboard');
         } elseif ($status == 2) {
             return redirect()->route('UserDashboard');

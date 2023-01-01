@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthenticationController;
+use App\Repositories\ContactUs\ContactUs;
+use App\Repositories\ContactUs\IContactUs;
 use App\Repositories\User\IUsers;
 use App\Repositories\User\Authentication;
 use App\Repositories\City\Cities;
@@ -35,6 +37,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(IProvinces::class,Provinces::class);
         $this->app->bind(ICities::class,Cities::class);
         $this->app->bind(IUserGroups::class,UserGroups::class);
+        $this->app->bind(IContactUs::class,ContactUs::class);
     }
 
     /**

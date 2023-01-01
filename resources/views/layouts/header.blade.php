@@ -74,7 +74,7 @@
                         </div>
                         <ul class="main-menu d-flex align-items-center">
                             <li><a class="active" href="index.html">Home</a></li>
-                            <li><a href="shop.html">Contact us</a></li>
+                            <li><a href="{{route('contactUs')}}">Contact us</a></li>
                             <li><a href="shop.html">Shop</a></li>
                             <li>
                                 <a href="javascript:void(0)">Category

@@ -7,9 +7,9 @@ use App\Http\Controllers\Admin\ProvinceController;
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\UserGroupController;
 use App\Http\Controllers\Admin\UserController;
-
+use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\User\ProfileController;
-
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +25,9 @@ use App\Http\Controllers\User\ProfileController;
 Route::get('/', function () {
     return view('pages.index');
 })->name('home');
+
+Route::get('/contactUs', [ContactController::class,'index'])->name('contactUs');
+Route::post('/addContactUs', [ContactController::class,'store'])->name('addContactUs');
 
 Route::get('/account', [AuthenticationController::class,'index'])->name('account');
 Route::post('/UserAccount', [AuthenticationController::class,'store'])->name('UserAccount');
@@ -64,6 +67,9 @@ Route::group(['namespace'=>'admin/pages','middleware'=>'checkAdminLogin','prefix
     Route::get('/EditUser/{id}', [UserController::class,'edit'])->name('EditUser');
     Route::put('/UpdateUser/{id}', [UserController::class,'update'])->name('UpdateUser');
     Route::get('/FetchCity/{id}', [UserController::class,'fetchCity'])->name('FetchCity');
-    Route::get('/{id}', [UserController::class,'editUserAddress'])->name('EditUserAddress');
+    Route::get('/UserAddress/{id}', [UserController::class,'editUserAddress'])->name('EditUserAddress');
     Route::put('/UpdateUserAddress/{id}', [UserController::class,'updateUserAddress'])->name('UpdateUserAddress');
+
+    Route::get('/Messages', [ContactUsController::class,'index'])->name('MessagesList');
+    Route::get('/ShowDetails/{id}', [ContactUsController::class,'details'])->name('ShowDetails');
 });

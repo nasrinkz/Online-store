@@ -3,13 +3,13 @@
 namespace App\Repositories\User;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Session;
 
 class Authentication implements IUsers
 {
+
     function validation($request)
     {
         $request->validate([

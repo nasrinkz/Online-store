@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','NikaStore | Contact us')
+@section('title','NikaStore | ContactUs us')
 @section('breadcrumb')
     @parent
     @section('breadcrumbAppend')
@@ -14,7 +14,7 @@
 @endsection
 @section('content')
     <main>
-        <!-- Start Contact Form -->
+        <!-- Start ContactUs Form -->
         <section class="account-sign">
             <div class="untree_co-section">
                 <div class="container">
@@ -62,33 +62,46 @@
                                         </div> <!-- /.service -->
                                     </div>
                                 </div>
-
-                                <form class="account-sign-in">
+                                @if(Session::has('success'))
+                                    <div class="alert alert-success">
+                                        {{Session::get('success')}}
+                                    </div>
+                                @endif
+                                <form class="account-sign-in" method="POST" action="{{route('addContactUs')}}">
+                                    @csrf
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label class="text-black" for="fname">Full Name</label>
-                                                <input type="text" class="form-control" id="fname">
+                                                <input type="text" class="@error('fullName') is-invalid @enderror form-control" name="fullName" id="fname">
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label class="text-black" for="fname">Number</label>
-                                                <input type="tel" class="form-control" id="number">
+                                                <input type="tel" class="@error('mobile') is-invalid @enderror form-control" name="mobile" id="number">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="text-black" for="email">Email address</label>
-                                        <input type="email" class="form-control" id="email">
+                                        <input type="email" class="@error('email') is-invalid @enderror form-control" name="email" id="email">
                                     </div>
 
                                     <div class="form-group mb-5">
                                         <label class="text-black" for="message">Message</label>
-                                        <textarea name="" class="form-control" id="message" cols="30" rows="5"></textarea>
+                                        <textarea name="message" class="@error('message') is-invalid @enderror form-control" id="message" cols="30" rows="5"></textarea>
                                     </div>
-
                                     <button type="submit" class="btn bg-primary ">Send Message</button>
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger mt-4">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
                                 </form>
 
                             </div>

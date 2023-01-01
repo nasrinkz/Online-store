@@ -67,6 +67,14 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('MessagesList')}}" class="nav-link">
+                        <i class="nav-icon fas fa-envelope"></i>
+                        <p>
+                            Messages
+                        </p>
+                    </a>
+                </li>
 
                 <li class="nav-item">
                     <a href="pages/widgets.html" class="nav-link">

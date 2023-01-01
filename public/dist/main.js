@@ -120,3 +120,10 @@ eval("__webpack_require__(/*! ./src/js/main.js */\"./src/js/main.js\");\nmodule.
 /***/ })
 
 /******/ });
+
+$("document").ready(function(){
+    setTimeout(function(){
+        $("div.alert").remove();
+    }, 7000 ); // 7 secs
+
+});

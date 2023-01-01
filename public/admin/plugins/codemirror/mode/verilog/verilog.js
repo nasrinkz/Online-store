@@ -492,7 +492,7 @@ CodeMirror.defineMode("verilog", function(config, parserConfig) {
   // TL-Verilog mode.
   // See tl-x.org for language spec.
   // See the mode in action at makerchip.com.
-  // Contact: steve.hoover@redwoodeda.com
+  // ContactUs: steve.hoover@redwoodeda.com
 
   // TLV Identifier prefixes.
   // Note that sign is not treated separately, so "+/-" versions of numeric identifiers

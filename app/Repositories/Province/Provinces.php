@@ -5,7 +5,7 @@ use App\Models\Province;
 
 class Provinces implements IProvinces
 {
-    function showProvinces($request)
+    public function showProvinces($request)
     {
         $values=Province::when($request->has("title"),function($q)use($request){
             return $q->where("title","like","%".$request->get("title")."%");
@@ -31,7 +31,7 @@ class Provinces implements IProvinces
         return [$values,$dataTableInfo];
     }
 
-    function validate($request)
+    public function validate($request)
     {
         $request->validate([
             'title' => 'required|unique:provinces',
