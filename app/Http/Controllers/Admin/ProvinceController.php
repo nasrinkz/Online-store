@@ -29,7 +29,7 @@ class ProvinceController extends Controller
     public function store(Request $request)
     {
         $this->provinces->validate($request);
-        return back()->with(['success' => 'New city successfully added.']);
+        return back()->with(['success' => 'New province successfully added.']);
     }
 
     public function destroy($id)

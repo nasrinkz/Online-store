@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\UserGroupController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ContactUsController;
+use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\ContactController;
 
@@ -72,4 +73,12 @@ Route::group(['namespace'=>'admin/pages','middleware'=>'checkAdminLogin','prefix
 
     Route::get('/Messages', [ContactUsController::class,'index'])->name('MessagesList');
     Route::get('/ShowDetails/{id}', [ContactUsController::class,'details'])->name('ShowDetails');
+
+    Route::get('/Brands', [BrandController::class,'index'])->name('BrandsList');
+    Route::post('/AddBrand', [BrandController::class,'store'])->name('AddBrand');
+    Route::get('/DeleteBrand/{id}', [BrandController::class,'destroy'])->name('DestroyBrand');
+    Route::get('/ChangeBrandStatus/{id}/{status}', [BrandController::class,'editStatus'])->name('ChangeBrandStatus');
+    Route::get('/EditBrand/{id}', [BrandController::class,'edit'])->name('EditBrand');
+    Route::put('/UpdateBrand/{id}', [BrandController::class,'update'])->name('UpdateBrand');
+
 });

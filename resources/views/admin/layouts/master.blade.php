@@ -95,6 +95,8 @@
 <script src="{{asset('admin/dist/js/pages/dashboard.js')}}"></script>
 <!-- Select2 -->
 <script src="{{asset('admin/plugins/select2/js/select2.full.min.js')}}"></script>
+<!-- bs-custom-file-input -->
+<script src="{{asset('admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
 
 <script src="{{asset('admin/js/main.js')}}"></script>
 </body>
