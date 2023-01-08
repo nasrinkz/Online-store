@@ -22,12 +22,12 @@
         @endif
         <tr>
             <td scope="row">{{$num}}</td>
-            <td><img class="imageInTable" src="{{asset($value->image)}}" title="{{$value->title}}" alt="BrandLogo"></td>
+            <td><img class="imageInTable" src="{{asset($value->image)}}" title="{{$value->title}}" alt="CategoryIcon"></td>
             <td>{{$value->title}}</td>
             <td>{{\Illuminate\Support\Str::limit($value->description, 10), '...'}}</td>
-            <td><a href="javascript:" id="{{$next_status}}" rel="{{url('AdminDashboard/ChangeBrandStatus',$value->id)}}/" onClick="changeShow(this);">@if($value->status== 1)<i id="{{$value->id}}" class='fa fa-check text-success'> Enable</i> @else <i id="{{$value->id}}" class='fa fa-ban text-danger'> Disable</i>@endif </a></td>
-            <td><a href="{{route('EditBrand',$value->id)}}"><i class="fa fa-edit text-primary" title="Edit"></i> </a>
-                <a href="{{route('DestroyBrand',$value->id)}}"><i class="fa fa-trash text-danger" title="Delete"></i> </a>
+            <td><a href="javascript:" id="{{$next_status}}" rel="{{url('AdminDashboard/ChangeCategoryStatus',$value->id)}}/" onClick="changeShow(this);">@if($value->status== 1)<i id="{{$value->id}}" class='fa fa-check text-success'> Enable</i> @else <i id="{{$value->id}}" class='fa fa-ban text-danger'> Disable</i>@endif </a></td>
+            <td><a href="{{route('EditCategory',$value->id)}}"><i class="fa fa-edit text-primary" title="Edit"></i> </a>
+                <a href="{{route('DestroyCategory',$value->id)}}"><i class="fa fa-trash text-danger" title="Delete"></i> </a>
             </td>
         </tr>
         @php($num++)

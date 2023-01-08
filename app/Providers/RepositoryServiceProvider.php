@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthenticationController;
 use App\Repositories\Brand\Brands;
 use App\Repositories\Brand\IBrands;
+use App\Repositories\Category\Categories;
+use App\Repositories\Category\ICategories;
 use App\Repositories\ContactUs\ContactUs;
 use App\Repositories\ContactUs\IContactUs;
 use App\Repositories\User\IUsers;
@@ -41,6 +43,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(IUserGroups::class,UserGroups::class);
         $this->app->bind(IContactUs::class,ContactUs::class);
         $this->app->bind(IBrands::class,Brands::class);
+        $this->app->bind(ICategories::class,Categories::class);
     }
 
     /**

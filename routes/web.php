@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\UserGroupController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\ContactController;
 
@@ -80,5 +81,12 @@ Route::group(['namespace'=>'admin/pages','middleware'=>'checkAdminLogin','prefix
     Route::get('/ChangeBrandStatus/{id}/{status}', [BrandController::class,'editStatus'])->name('ChangeBrandStatus');
     Route::get('/EditBrand/{id}', [BrandController::class,'edit'])->name('EditBrand');
     Route::put('/UpdateBrand/{id}', [BrandController::class,'update'])->name('UpdateBrand');
+
+    Route::get('/Categories', [CategoryController::class,'index'])->name('CategoriesList');
+    Route::post('/AddCategory', [CategoryController::class,'store'])->name('AddCategory');
+    Route::get('/DeleteCategory/{id}', [CategoryController::class,'destroy'])->name('DestroyCategory');
+    Route::get('/ChangeCategoryStatus/{id}/{status}', [CategoryController::class,'editStatus'])->name('ChangeCategoryStatus');
+    Route::get('/EditCategory/{id}', [CategoryController::class,'edit'])->name('EditCategory');
+    Route::put('/UpdateCategory/{id}', [CategoryController::class,'update'])->name('UpdateCategory');
 
 });

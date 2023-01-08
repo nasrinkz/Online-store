@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title','Dashboard | Brands List')
+@section('title','Dashboard | Categories List')
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -8,12 +8,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Brands</h1>
+                        <h1>Categories</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('AdminDashboard')}}">Home</a></li>
-                            <li class="breadcrumb-item active">Brands</li>
+                            <li class="breadcrumb-item active">Categories</li>
                         </ol>
                     </div>
                 </div>
@@ -40,8 +40,8 @@
                         <div class="card">
                             <div class="card-header p-2">
                                 <ul class="nav nav-pills">
-                                    <li class="nav-item"><a class="nav-link @if((!$errors->any()) and (Session::missing('success'))) active @endif" href="#list" data-toggle="tab">Brands list</a></li>
-                                    <li class="nav-item"><a class="nav-link @if(($errors->any()) or (Session::has('success'))) active @endif" href="#add" data-toggle="tab">Add new brand</a></li>
+                                    <li class="nav-item"><a class="nav-link @if((!$errors->any()) and (Session::missing('success'))) active @endif" href="#list" data-toggle="tab">Categories list</a></li>
+                                    <li class="nav-item"><a class="nav-link @if(($errors->any()) or (Session::has('success'))) active @endif" href="#add" data-toggle="tab">Add new category</a></li>
                                 </ul>
                             </div><!-- /.card-header -->
                             <div class="card-body">
@@ -58,19 +58,19 @@
                                                     </div>
                                                     @csrf
                                                 </div>
-                                                <a class='btn btn-success search-btn' href='{{route("BrandsList")}}' id='search_btn'>Search</a>
+                                                <a class='btn btn-success search-btn' href='{{route("CategoriesList")}}' id='search_btn'>Search</a>
                                             </form>
                                         </div>
                                         <div id="pagination_data">
-                                            @include("admin.pages.brands.getBrandsData",["values"=>$values])
+                                            @include("admin.pages.categories.getCategoriesData",["values"=>$values])
                                         </div>
                                     </div>
                                     <div class="@if(($errors->any()) or (Session::has('success'))) active @endif tab-pane" id="add">
                                         <div class="card card-info">
                                             <div class="card-header">
-                                                <h3 class="card-title">Add brand</h3>
+                                                <h3 class="card-title">Add category</h3>
                                             </div>
-                                            <form method="POST" action="{{route('AddBrand')}}" enctype="multipart/form-data">
+                                            <form method="POST" action="{{route('AddCategory')}}" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="card-body">
                                                     <div class="input-group mb-0">
@@ -103,7 +103,7 @@
                                                     @endif
                                                     <div class="input-group mb-0 mt-4">
                                                         <div class="custom-file">
-                                                            <input type="file" required class="custom-file-input" accept="image/png, image/jpg, image/jpeg, image/svg" name="image" id="customFile" onchange="loadPreview(this);">
+                                                            <input type="file" required accept="image/png, image/jpg, image/jpeg, image/svg" class="custom-file-input" name="image" id="customFile" onchange="loadPreview(this);">
                                                             <label class="custom-file-label" for="customFile">Choose image</label>
                                                         </div>
                                                     </div>
@@ -113,7 +113,7 @@
                                                     @endif
                                                 </div>
                                                 <div class="card-footer">
-                                                    <button type="submit" class="btn btn-info">Save new brand</button>
+                                                    <button type="submit" class="btn btn-info">Save new category</button>
                                                 </div>
                                             </form>
                                         </div>
