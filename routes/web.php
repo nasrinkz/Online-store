@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\SizeController;
+use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\ContactController;
 
@@ -88,5 +90,19 @@ Route::group(['namespace'=>'admin/pages','middleware'=>'checkAdminLogin','prefix
     Route::get('/ChangeCategoryStatus/{id}/{status}', [CategoryController::class,'editStatus'])->name('ChangeCategoryStatus');
     Route::get('/EditCategory/{id}', [CategoryController::class,'edit'])->name('EditCategory');
     Route::put('/UpdateCategory/{id}', [CategoryController::class,'update'])->name('UpdateCategory');
+
+    Route::get('/Sizes', [SizeController::class,'index'])->name('SizesList');
+    Route::post('/AddSize', [SizeController::class,'store'])->name('AddSize');
+    Route::get('/DeleteSize/{id}', [SizeController::class,'destroy'])->name('DestroySize');
+    Route::get('/ChangeSizeStatus/{id}/{status}', [SizeController::class,'editStatus'])->name('ChangeSizeStatus');
+    Route::get('/EditSize/{id}', [SizeController::class,'edit'])->name('EditSize');
+    Route::put('/UpdateSize/{id}', [SizeController::class,'update'])->name('UpdateSize');
+
+    Route::get('/Colors', [ColorController::class,'index'])->name('ColorsList');
+    Route::post('/AddColor', [ColorController::class,'store'])->name('AddColor');
+    Route::get('/DeleteColor/{id}', [ColorController::class,'destroy'])->name('DestroyColor');
+    Route::get('/ChangeColorStatus/{id}/{status}', [ColorController::class,'editStatus'])->name('ChangeColorStatus');
+    Route::get('/EditColor/{id}', [ColorController::class,'edit'])->name('EditColor');
+    Route::put('/UpdateColor/{id}', [ColorController::class,'update'])->name('UpdateColor');
 
 });

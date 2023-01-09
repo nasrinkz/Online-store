@@ -98,13 +98,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="pages/examples/login.html" class="nav-link">
+                                    <a href="{{route('ColorsList')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Colors</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/examples/register.html" class="nav-link">
+                                    <a href="{{route('SizesList')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Sizes</p>
                                     </a>

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreignId('coupon_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->integer('productsPrice')->nullable();
             $table->integer('postPrice')->nullable();
-            $table->integer('totalPrice')->nullable()->comment('After using code.This price is paid cost');
+            $table->integer('totalPrice')->nullable()->comment('After using coupon code. This price is paid cost');
             $table->string('name')->nullable();
             $table->string('family')->nullable();
             $table->string('address')->nullable();

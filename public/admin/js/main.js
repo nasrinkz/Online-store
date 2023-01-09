@@ -38,6 +38,13 @@ function changeShow(placeholder) {
 $(function() {
     $('.select2').select2();
 
+    //color picker with addon
+    $('.my-colorpicker2').colorpicker()
+
+    $('.my-colorpicker2').on('colorpickerChange', function(event) {
+        $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+    })
+
     $(document).on("click", "#pagination a,#search_btn", function() {
         //get url and make final url for ajax
         var url = $(this).attr("href");

@@ -10,8 +10,12 @@ use App\Repositories\Brand\Brands;
 use App\Repositories\Brand\IBrands;
 use App\Repositories\Category\Categories;
 use App\Repositories\Category\ICategories;
+use App\Repositories\Color\Colors;
+use App\Repositories\Color\IColors;
 use App\Repositories\ContactUs\ContactUs;
 use App\Repositories\ContactUs\IContactUs;
+use App\Repositories\Size\ISizes;
+use App\Repositories\Size\Sizes;
 use App\Repositories\User\IUsers;
 use App\Repositories\User\Authentication;
 use App\Repositories\City\Cities;
@@ -44,6 +48,8 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(IContactUs::class,ContactUs::class);
         $this->app->bind(IBrands::class,Brands::class);
         $this->app->bind(ICategories::class,Categories::class);
+        $this->app->bind(ISizes::class,Sizes::class);
+        $this->app->bind(IColors::class,Colors::class);
     }
 
     /**

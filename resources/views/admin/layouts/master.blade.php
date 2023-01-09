@@ -30,6 +30,9 @@
     <link rel="stylesheet" href="{{asset('admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
     <!-- Select2 -->
     <link rel="stylesheet" href="{{asset('admin/plugins/select2/css/select2.min.css')}}">
+    <!-- Bootstrap Color Picker -->
+    <link rel="stylesheet" href="{{asset('admin/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css')}}">
+
     <link rel="stylesheet" href="{{asset('admin/css/main.css')}}">
 </head>
 
@@ -97,6 +100,8 @@
 <script src="{{asset('admin/plugins/select2/js/select2.full.min.js')}}"></script>
 <!-- bs-custom-file-input -->
 <script src="{{asset('admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
+<!-- bootstrap color picker -->
+<script src="{{asset('admin/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js')}}"></script>
 
 <script src="{{asset('admin/js/main.js')}}"></script>
 </body>
