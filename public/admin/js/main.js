@@ -107,3 +107,28 @@ function loadPreview(input, id) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+//for coupon
+function coupon_validation(){
+    const form_alert = document.getElementById('form_alert');
+    var title = document.getElementById('title').value;
+    var code = document.getElementById('code').value;
+    var startDate=document.getElementById('startDate').value;
+    var date1 = new Date(startDate).toJSON().slice(0, 10);
+    var expireDate=document.getElementById('expireDate').value;
+    var date2 = new Date(expireDate).toJSON().slice(0, 10);
+    var currentDateTime = new Date().toJSON().slice(0, 10);
+
+    if(title==""){
+        form_alert.textContent ='فیلد نام فرستنده نباید خالی باشد';
+        event.preventDefault();
+    }else if(code=="") {
+        form_alert.textContent = 'فیلد نام فرستنده نباید خالی باشد';
+        event.preventDefault();
+    }else if (date1 < currentDateTime) {
+        form_alert.textContent = 'Start date can`t be before today' ;
+        event.preventDefault();
+    }else if (expireDate != "" && date2 < date1 ) {
+        form_alert.textContent = 'Expire date must be after start date';
+        event.preventDefault();
+    }
+}

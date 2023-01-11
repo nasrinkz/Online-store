@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->string('code')->nullable();
             $table->enum('status',[0,1])->default(1);
-            $table->date('expireDate')->nullable();
+            $table->dateTime('startDate')->nullable();
+            $table->dateTime('expireDate')->nullable();
             $table->timestamps();
         });
     }

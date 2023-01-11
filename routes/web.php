@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SizeController;
+use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\ContactController;
@@ -104,5 +105,12 @@ Route::group(['namespace'=>'admin/pages','middleware'=>'checkAdminLogin','prefix
     Route::get('/ChangeColorStatus/{id}/{status}', [ColorController::class,'editStatus'])->name('ChangeColorStatus');
     Route::get('/EditColor/{id}', [ColorController::class,'edit'])->name('EditColor');
     Route::put('/UpdateColor/{id}', [ColorController::class,'update'])->name('UpdateColor');
+
+    Route::get('/Coupons', [CouponController::class,'index'])->name('CouponsList');
+    Route::post('/AddCoupon', [CouponController::class,'store'])->name('AddCoupon');
+    Route::get('/DeleteCoupon/{id}', [CouponController::class,'destroy'])->name('DestroyCoupon');
+    Route::get('/ChangeCouponStatus/{id}/{status}', [CouponController::class,'editStatus'])->name('ChangeCouponStatus');
+    Route::get('/EditCoupon/{id}', [CouponController::class,'edit'])->name('EditCoupon');
+    Route::put('/UpdateCoupon/{id}', [CouponController::class,'update'])->name('UpdateCoupon');
 
 });
