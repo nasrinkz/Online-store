@@ -122,11 +122,13 @@
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <span class="dropdown-item dropdown-header">{{Session::get('messagesCount')}} Notifications</span>
                 <div class="dropdown-divider"></div>
+                @if(Session::get('messagesCount')!=0)
                 <a href="{{route('MessagesList')}}" class="dropdown-item">
                     <i class="fas fa-envelope mr-2"></i> {{Session::get('messagesCount')}} Unread messages
 {{--                    <span class="float-right text-muted text-sm">3 mins</span>--}}
                 </a>
                 <a href="{{route('MessagesList')}}" class="dropdown-item dropdown-footer">See All Notifications</a>
+                @endif
             </div>
         </li>
         <li class="nav-item">

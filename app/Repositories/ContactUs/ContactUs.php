@@ -37,6 +37,8 @@ class ContactUs implements IContactUs
         Contact::whereId($id)->update([
             'status' => 'read'
         ]);
+        $messagesCount = Contact::whereStatus('unread')->count();
+        session(['messagesCount' => $messagesCount]);
         return $value;
     }
 
