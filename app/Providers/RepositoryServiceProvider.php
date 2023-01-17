@@ -16,6 +16,8 @@ use App\Repositories\ContactUs\ContactUs;
 use App\Repositories\ContactUs\IContactUs;
 use App\Repositories\Coupon\Coupons;
 use App\Repositories\Coupon\ICoupons;
+use App\Repositories\Product\IProducts;
+use App\Repositories\Product\Products;
 use App\Repositories\Size\ISizes;
 use App\Repositories\Size\Sizes;
 use App\Repositories\User\IUsers;
@@ -53,6 +55,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(ISizes::class,Sizes::class);
         $this->app->bind(IColors::class,Colors::class);
         $this->app->bind(ICoupons::class,Coupons::class);
+        $this->app->bind(IProducts::class,Products::class);
     }
 
     /**

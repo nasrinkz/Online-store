@@ -112,7 +112,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('UsersList')}}" class="nav-link">
+                            <a href="{{route('ProductsList')}}" class="nav-link">
                                 <i class="far fa-dot-circle nav-icon"></i>
                                 <p>Products</p>
                             </a>

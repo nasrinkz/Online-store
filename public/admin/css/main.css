@@ -25,3 +25,19 @@
     height: 50px;
     border-radius: 10px;
 }
+.sub-nav-item .active{
+    background: none !important;
+    color: black !important;
+    border: 1px dashed;
+}
+.edit-sub-nav-item .active{
+    background-color: #dde5ee !important;
+}
+.search-form-group .input-group-prepend~.select2-container--default .select2-selection{
+    border-radius: 5px;
+    height: 38px;
+    margin-left: 5px;
+}
+.search-form-group .select2-container{
+    width: unset !important;
+}

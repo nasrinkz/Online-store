@@ -62,7 +62,15 @@ $(function() {
         return false;
     })
 });
-
+function getValue()
+{
+    var x=document.getElementById("sel");
+    for (var i = 0; i < x.options.length; i++) {
+        if(x.options[i].selected ==true){
+            alert(x.options[i].value);
+        }
+    }
+}
 $(document).ready(function() {
     $('#province').on('change', function () {
         var provinceID = $(this).val();
@@ -88,6 +96,65 @@ $(document).ready(function() {
             $('#city').empty();
         }
     });
+
+    $('#colors').on('change', function () {
+        let text = "<span> Colors quantity: </span>";
+        for (let i = 0; i < this.options.length; i++) {
+            if(this.options[i].selected){
+                var inputName='colorNumber'+this.options[i].value;
+                text += "<div class='input-group mb-0 mt-4'><div class='input-group-prepend'><span class='input-group-text'>" + " Quantity available for " +this.options[i].text +" color: "+
+                "</span></div><input class='form-control' type='number' required placeholder='Quantity' name="+inputName+"></div>";
+            }
+        }
+        text +="<hr>";
+        $('#colorsQuantity').empty();
+        $('#colorsQuantity').append(text);
+    });
+    $('#sizes').on('change', function () {
+        let text = "<span> Sizes quantity: </span>";
+        for (let i = 0; i < this.options.length; i++) {
+            if(this.options[i].selected){
+                var inputName='sizeNumber'+this.options[i].value;
+                text += "<div class='input-group mb-0 mt-4'><div class='input-group-prepend'><span class='input-group-text'>" + " Quantity available for " +this.options[i].text +" size: "+
+                    "</span></div><input class='form-control' type='number' required placeholder='Quantity' name="+inputName+"></div>";
+            }
+        }
+        $('#sizesQuantity').empty();
+        $('#sizesQuantity').append(text);
+    });
+
+    $('#editColors').on('change', function () {
+        let text = "<span> Colors quantity: </span>";
+        for (let i = 0; i < this.options.length; i++) {
+            if(this.options[i].selected){
+                var inputName='colorNumber'+this.options[i].value;
+                if (document.getElementById(inputName)){
+                    var value=document.getElementById(inputName).value
+                }else {var value=0};
+                text += "<div class='input-group mb-0 mt-4'><div class='input-group-prepend'><span class='input-group-text'>" + " Quantity available for " +this.options[i].text +" color: "+
+                    "</span></div><input class='form-control' value="+value+" type='number' required placeholder='Quantity' id="+inputName+" name="+inputName+"></div>";
+            }
+        }
+        text +="<hr>";
+        $('#colorsQuantity').empty();
+        $('#colorsQuantity').append(text);
+    });
+    $('#editSizes').on('change', function () {
+        let text = "<span> Sizes quantity: </span>";
+        for (let i = 0; i < this.options.length; i++) {
+            if(this.options[i].selected){
+                var inputName='sizeNumber'+this.options[i].value;
+                if (document.getElementById(inputName)){
+                    var value=document.getElementById(inputName).value
+                }else {var value=0};
+                text += "<div class='input-group mb-0 mt-4'><div class='input-group-prepend'><span class='input-group-text'>" + " Quantity available for " +this.options[i].text +" size: "+
+                    "</span></div><input class='form-control' value="+value+" type='number' required placeholder='Quantity' id="+inputName+" name="+inputName+"></div>";
+            }
+        }
+        $('#sizesQuantity').empty();
+        $('#sizesQuantity').append(text);
+    });
+
 });
 //for images upload
 $(function () {

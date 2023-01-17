@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SizeController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\ColorController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\ContactController;
 
@@ -112,5 +113,14 @@ Route::group(['namespace'=>'admin/pages','middleware'=>'checkAdminLogin','prefix
     Route::get('/ChangeCouponStatus/{id}/{status}', [CouponController::class,'editStatus'])->name('ChangeCouponStatus');
     Route::get('/EditCoupon/{id}', [CouponController::class,'edit'])->name('EditCoupon');
     Route::put('/UpdateCoupon/{id}', [CouponController::class,'update'])->name('UpdateCoupon');
+
+    Route::get('/Products', [ProductController::class,'index'])->name('ProductsList');
+    Route::post('/AddProduct', [ProductController::class,'store'])->name('AddProduct');
+    Route::get('/DeleteProduct/{id}', [ProductController::class,'destroy'])->name('DestroyProduct');
+    Route::get('/ChangeProductStatus/{id}/{status}', [ProductController::class,'editStatus'])->name('ChangeProductStatus');
+    Route::get('/EditProduct/{id}', [ProductController::class,'edit'])->name('EditProduct');
+    Route::put('/UpdateProduct/{id}', [ProductController::class,'update'])->name('UpdateProduct');
+    Route::post('/DeleteProductImage/{id}', [ProductController::class,'deleteImage'])->name('DeleteProductImage');
+    Route::put('/UpdateProductGallery/{id}', [ProductController::class,'updateGallery'])->name('UpdateProductGallery');
 
 });

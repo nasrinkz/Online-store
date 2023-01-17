@@ -63,7 +63,7 @@
                         <div class="features-active">
                             <div class="product-item">
                                 <div class="product-item-image">
-                                    <a href="product-details.blade.php"><img src="{{asset('dist/images/product/05.jpg')}}" alt="Product Name"
+                                    <a href="product-details.blade.php"><img src="{{asset('dist/images/products/05.jpg')}}" alt="Product Name"
                                                                              class="img-fluid"></a>
                                     <div class="cart-icon">
                                         <a href="#"><i class="far fa-heart"></i></a>
@@ -98,7 +98,7 @@
                             </div>
                             <div class="product-item">
                                 <div class="product-item-image">
-                                    <a href="product-details.blade.php"> <img src="{{asset('dist/images/product/04.jpg')}}" alt="Product Name"
+                                    <a href="product-details.blade.php"> <img src="{{asset('dist/images/products/04.jpg')}}" alt="Product Name"
                                                                               class="img-fluid"></a>
                                     <div class="cart-icon">
                                         <a href="#"><i class="far fa-heart"></i></a>
@@ -133,7 +133,7 @@
                             </div>
                             <div class="product-item">
                                 <div class="product-item-image">
-                                    <a href="product-details.blade.php"><img src="{{asset('dist/images/product/01.jpg')}}" alt="Product Name"
+                                    <a href="product-details.blade.php"><img src="{{asset('dist/images/products/01.jpg')}}" alt="Product Name"
                                                                              class="img-fluid"></a>
                                     <div class="cart-icon">
                                         <a href="#"><i class="far fa-heart"></i></a>
@@ -168,7 +168,7 @@
                             </div>
                             <div class="product-item">
                                 <div class="product-item-image">
-                                    <a href="product-details.blade.php"> <img src="{{asset('dist/images/product/02.jpg')}}" alt="Product Name"
+                                    <a href="product-details.blade.php"> <img src="{{asset('dist/images/products/02.jpg')}}" alt="Product Name"
                                                                               class="img-fluid"></a>
                                     <div class="cart-icon">
                                         <a href="#"><i class="far fa-heart"></i></a>
@@ -203,7 +203,7 @@
                             </div>
                             <div class="product-item">
                                 <div class="product-item-image">
-                                    <a href="product-details.blade.php"><img src="{{asset('dist/images/product/03.jpg')}}" alt="Product Name"
+                                    <a href="product-details.blade.php"><img src="{{asset('dist/images/products/03.jpg')}}" alt="Product Name"
                                                                              class="img-fluid"></a>
                                     <div class="cart-icon">
                                         <a href="#"><i class="far fa-heart"></i></a>
@@ -326,7 +326,7 @@
                         <div class="col-md-4 col-sm-6">
                             <div class="product-item">
                                 <div class="product-item-image">
-                                    <a href="product-details.blade.php"><img src="{{asset('dist/images/product/01.jpg')}}" alt="Product Name"
+                                    <a href="product-details.blade.php"><img src="{{asset('dist/images/products/01.jpg')}}" alt="Product Name"
                                                                              class="img-fluid"></a>
                                     <div class="cart-icon">
                                         <a href="#"><i class="far fa-heart"></i></a>
@@ -363,7 +363,7 @@
                         <div class="col-md-4 col-sm-6">
                             <div class="product-item">
                                 <div class="product-item-image">
-                                    <a href="product-details.blade.php"><img src="{{asset('dist/images/product/02.jpg')}}" alt="Product Name"
+                                    <a href="product-details.blade.php"><img src="{{asset('dist/images/products/02.jpg')}}" alt="Product Name"
                                                                              class="img-fluid"></a>
                                     <div class="cart-icon">
                                         <a href="#"><i class="far fa-heart"></i></a>
@@ -400,7 +400,7 @@
                         <div class="col-md-4 col-sm-6">
                             <div class="product-item">
                                 <div class="product-item-image">
-                                    <a href="product-details.blade.php"><img src="{{asset('dist/images/product/03.jpg')}}" alt="Product Name"
+                                    <a href="product-details.blade.php"><img src="{{asset('dist/images/products/03.jpg')}}" alt="Product Name"
                                                                              class="img-fluid"></a>
                                     <div class="cart-icon">
                                         <a href="#"><i class="far fa-heart"></i></a>
@@ -437,7 +437,7 @@
                         <div class="col-md-4 col-sm-6">
                             <div class="product-item">
                                 <div class="product-item-image">
-                                    <a href="product-details.blade.php"><img src="{{asset('dist/images/product/04.jpg')}}" alt="Product Name"
+                                    <a href="product-details.blade.php"><img src="{{asset('dist/images/products/04.jpg')}}" alt="Product Name"
                                                                              class="img-fluid"></a>
                                     <div class="cart-icon">
                                         <a href="#"><i class="far fa-heart"></i></a>
@@ -474,7 +474,7 @@
                         <div class="col-md-4 col-sm-6">
                             <div class="product-item">
                                 <div class="product-item-image">
-                                    <a href="product-details.blade.php"><img src="{{asset('dist/images/product/05.jpg')}}" alt="Product Name"
+                                    <a href="product-details.blade.php"><img src="{{asset('dist/images/products/05.jpg')}}" alt="Product Name"
                                                                              class="img-fluid"></a>
                                     <div class="cart-icon">
                                         <a href="#"><i class="far fa-heart"></i></a>
@@ -511,7 +511,7 @@
                         <div class="col-md-4 col-sm-6">
                             <div class="product-item">
                                 <div class="product-item-image">
-                                    <a href="product-details.blade.php"><img src="{{asset('dist/images/product/06.jpg')}}" alt="Product Name"
+                                    <a href="product-details.blade.php"><img src="{{asset('dist/images/products/06.jpg')}}" alt="Product Name"
                                                                              class="img-fluid"></a>
                                     <div class="cart-icon">
                                         <a href="#"><i class="far fa-heart"></i></a>
@@ -548,7 +548,7 @@
                         <div class="col-md-4 col-sm-6">
                             <div class="product-item">
                                 <div class="product-item-image">
-                                    <a href="product-details.blade.php"><img src="{{asset('dist/images/product/07.jpg')}}" alt="Product Name"
+                                    <a href="product-details.blade.php"><img src="{{asset('dist/images/products/07.jpg')}}" alt="Product Name"
                                                                              class="img-fluid"></a>
                                     <div class="cart-icon">
                                         <a href="#"><i class="far fa-heart"></i></a>
@@ -585,7 +585,7 @@
                         <div class="col-md-4 col-sm-6">
                             <div class="product-item">
                                 <div class="product-item-image">
-                                    <a href="product-details.blade.php"><img src="{{asset('dist/images/product/08.jpg')}}" alt="Product Name"
+                                    <a href="product-details.blade.php"><img src="{{asset('dist/images/products/08.jpg')}}" alt="Product Name"
                                                                              class="img-fluid"></a>
                                     <div class="cart-icon">
                                         <a href="#"><i class="far fa-heart"></i></a>
@@ -622,7 +622,7 @@
                         <div class="col-md-4 col-sm-6">
                             <div class="product-item">
                                 <div class="product-item-image">
-                                    <a href="product-details.blade.php"><img src="{{asset('dist/images/product/09.jpg')}}" alt="Product Name"
+                                    <a href="product-details.blade.php"><img src="{{asset('dist/images/products/09.jpg')}}" alt="Product Name"
                                                                              class="img-fluid"></a>
                                     <div class="cart-icon">
                                         <a href="#"><i class="far fa-heart"></i></a>
