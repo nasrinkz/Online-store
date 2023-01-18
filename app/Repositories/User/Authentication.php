@@ -2,6 +2,9 @@
 
 namespace App\Repositories\User;
 
+use App\Models\Brand;
+use App\Models\Order;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -98,5 +101,14 @@ class Authentication implements IUsers
     public function logout() {
         Session::flush();
         Auth::logout();
+    }
+
+    public function adminIndex()
+    {
+        $ordersCount = Order::whereStatus('1')->count();
+        $usersCount = User::whereStatus('1')->count();
+        $productsCount = Product::whereStatus('1')->count();
+        $brandsCount = Brand::whereStatus('1')->count();
+        return [$ordersCount,$usersCount,$productsCount,$brandsCount];
     }
 }

@@ -17,7 +17,12 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view('admin.pages.index');
+        $data=$this->authenticationRepo->adminIndex();
+        $ordersCount=$data[0];
+        $usersCount=$data[1];
+        $productsCount=$data[2];
+        $brandsCount=$data[3];
+        return view('admin.pages.index',compact('ordersCount','usersCount','productsCount','brandsCount'));
     }
 
     public function show()
