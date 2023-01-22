@@ -107,6 +107,18 @@
                                                 @if($errors->has('status'))
                                                     <span class="error-text text-danger">{{$errors->first('status')}}</span>
                                                 @endif
+                                                    <div class="input-group mb-0 mt-4">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">Special</span>
+                                                        </div>
+                                                        <select class="form-control" required name="special">
+                                                            <option @if($value->special==1) selected @endif value="1">Yes</option>
+                                                            <option @if($value->special==0) selected @endif value="0">No</option>
+                                                        </select>
+                                                    </div>
+                                                    @if($errors->has('special'))
+                                                        <span class="error-text text-danger">{{$errors->first('special')}}</span>
+                                                    @endif
                                                 <div class="input-group mb-0 mt-4">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text">Category</span>

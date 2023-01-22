@@ -13,7 +13,6 @@ use App\Models\ProductImage;
 use App\Models\ProductSize;
 use App\Models\Size;
 use Illuminate\Support\Facades\File;
-use function Symfony\Component\String\s;
 
 class Products implements IProducts
 {
@@ -64,9 +63,10 @@ class Products implements IProducts
             'originalPrice' => 'required',
             'sellingPrice' => 'required',
             'status' => 'required',
+            'special' => 'required',
             'color_id' => 'required',
             'size_id' => 'required',
-            'cover' => 'required',
+            'cover' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
             'image' => 'required',
         ],[
             'brand_id.required' => 'The brand field is required.',
@@ -97,6 +97,7 @@ class Products implements IProducts
         $row->originalPrice = $data['originalPrice'];
         $row->sellingPrice = $data['sellingPrice'];
         $row->status = $data['status'];
+        $row->special = $data['special'];
         $row->colors = $data['color_id'];
         $row->sizes = $data['size_id'];
         $row->save();
@@ -184,6 +185,7 @@ class Products implements IProducts
             'originalPrice' => 'required',
             'sellingPrice' => 'required',
             'status' => 'required',
+            'special' => 'required',
             'color_id' => 'required',
             'size_id' => 'required',
         ],[
@@ -204,6 +206,7 @@ class Products implements IProducts
         $data->title = $request->title;
         $data->description = $request->description;
         $data->status = $request->status;
+        $data->special = $request->special;
         $data->shortDescription = $request->shortDescription;
         $data->brand_id = $request->brand_id;
         $data->category_id = $request->category_id;

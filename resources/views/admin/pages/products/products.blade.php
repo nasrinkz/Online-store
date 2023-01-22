@@ -146,6 +146,19 @@
                                                                 @endif
                                                                 <div class="input-group mb-0 mt-4">
                                                                     <div class="input-group-prepend">
+                                                                        <span class="input-group-text">S</span>
+                                                                    </div>
+                                                                    <select class="form-control" required name="special">
+                                                                        <option selected value="" disabled>Choose special</option>
+                                                                        <option value="1">Yes</option>
+                                                                        <option value="0">No</option>
+                                                                    </select>
+                                                                </div>
+                                                                @if($errors->has('special'))
+                                                                    <span class="error-text text-danger">{{$errors->first('special')}}</span>
+                                                                @endif
+                                                                <div class="input-group mb-0 mt-4">
+                                                                    <div class="input-group-prepend">
                                                                         <span class="input-group-text">C</span>
                                                                     </div>
                                                                     <select class="form-control select2" name="category_id" required>
