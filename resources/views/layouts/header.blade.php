@@ -51,14 +51,14 @@
                                         <option value="4">Bangla</option>
                                     </select>
                                 </div>
-                                <div class="currency">
-                                    <select>
-                                        <option data-display="Currency">USD</option>
-                                        <option value="1">BDT</option>
-                                        <option value="2">SNG</option>
-                                        <option value="4">ERU</option>
-                                    </select>
-                                </div>
+{{--                                <div class="currency">--}}
+{{--                                    <select>--}}
+{{--                                        <option data-display="Currency">USD</option>--}}
+{{--                                        <option value="1">BDT</option>--}}
+{{--                                        <option value="2">SNG</option>--}}
+{{--                                        <option value="4">ERU</option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
                             </div>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                             <a href="index.html"><img src="{{asset('dist/images/logo/logo.png')}}" alt="logo" /></a>
                         </div>
                         <ul class="main-menu d-flex align-items-center">
-                            <li><a class="active" href="index.html">Home</a></li>
+                            <li><a class="active" href="{{route('home')}}">Home</a></li>
                             <li><a href="{{route('contactUs')}}">Contact us</a></li>
                             <li><a href="shop.html">Shop</a></li>
                             <li>

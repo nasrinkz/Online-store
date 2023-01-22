@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProvinceController;
@@ -28,9 +29,7 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.index');
-})->name('home');
+Route::get('/', [MainController::class,'index'])->name('home');
 
 Route::get('/contactUs', [ContactController::class,'index'])->name('contactUs');
 Route::post('/addContactUs', [ContactController::class,'store'])->name('addContactUs');

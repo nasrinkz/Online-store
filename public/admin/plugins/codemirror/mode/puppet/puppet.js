@@ -64,7 +64,7 @@ CodeMirror.defineMode("puppet", function () {
     return "string";
   }
 
-  // Main function
+  // IMain function
   function tokenize(stream, state) {
     // Matches one whole word
     var word = stream.match(/[\w]+/, false);

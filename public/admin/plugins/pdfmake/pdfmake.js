@@ -55913,7 +55913,7 @@ Utf32Decoder.prototype.write = function(src) {
         }
     }
 
-    // Main loop. Should be as optimized as possible.
+    // IMain loop. Should be as optimized as possible.
     for (; i < src.length - 3; i += 4) {
         // NOTE: codepoint is a signed int32 and can be negative.
         if (isLE) {
@@ -57942,7 +57942,7 @@ module.exports = {
     // == Japanese/ShiftJIS ====================================================
     // All japanese encodings are based on JIS X set of standards:
     // JIS X 0201 - Single-byte encoding of ASCII + ¥ + Kana chars at 0xA1-0xDF.
-    // JIS X 0208 - Main set of 6879 characters, placed in 94x94 plane, to be encoded by 2 bytes.
+    // JIS X 0208 - IMain set of 6879 characters, placed in 94x94 plane, to be encoded by 2 bytes.
     //              Has several variations in 1978, 1983, 1990 and 1997.
     // JIS X 0212 - Supplementary plane of 6067 chars in 94x94 plane. 1990. Effectively dead.
     // JIS X 0213 - Extension and modern replacement of 0208 and 0212. Total chars: 11233.
@@ -58029,7 +58029,7 @@ module.exports = {
     'isoir58': 'gbk',
 
     // GB18030 is an algorithmic extension of GBK.
-    // Main source: https://www.w3.org/TR/encoding/#gbk-encoder
+    // IMain source: https://www.w3.org/TR/encoding/#gbk-encoder
     // http://icu-project.org/docs/papers/gb18030.html
     // http://source.icu-project.org/repos/icu/data/trunk/charset/data/xml/gb-18030-2000.xml
     // http://www.khngai.com/chinese/charmap/tblgbk.php?page=0

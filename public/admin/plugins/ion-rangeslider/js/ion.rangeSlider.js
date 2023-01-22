@@ -148,7 +148,7 @@
     // Core
 
     /**
-     * Main plugin constructor
+     * IMain plugin constructor
      *
      * @param input {Object} link to base input element
      * @param options {Object} slider config
@@ -1324,7 +1324,7 @@
         // Drawings
 
         /**
-         * Main function called in request animation frame
+         * IMain function called in request animation frame
          * to update everything
          */
         updateScene: function () {

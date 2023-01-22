@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->text('shortDescription')->nullable();
             $table->enum('status',[0,1])->default(1);
+            $table->enum('special',[0,1])->nullable();
             $table->foreignId('brand_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('category_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->string('originalPrice')->nullable();

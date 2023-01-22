@@ -20,7 +20,7 @@
         </div>
         <!-- /.content-header -->
 
-        <!-- Main content -->
+        <!-- IMain content -->
         <section class="content">
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
@@ -83,7 +83,7 @@
                     <!-- ./col -->
                 </div>
                 <!-- /.row -->
-                <!-- Main row -->
+                <!-- IMain row -->
                 <div class="row">
                     <!-- Left col -->
                     <section class="col-lg-12 connectedSortable">
