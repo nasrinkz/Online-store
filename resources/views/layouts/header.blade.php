@@ -75,7 +75,7 @@
                         <ul class="main-menu d-flex align-items-center">
                             <li><a class="active" href="{{route('home')}}">Home</a></li>
                             <li><a href="{{route('contactUs')}}">Contact us</a></li>
-                            <li><a href="shop.html">Shop</a></li>
+                            <li><a href="{{route('Shop')}}">Shop</a></li>
                             <li>
                                 <a href="javascript:void(0)">Category
                                     <svg xmlns="http://www.w3.org/2000/svg" width="9.98" height="5.69"

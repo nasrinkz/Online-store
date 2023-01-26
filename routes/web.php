@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ShoppingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,16 +34,19 @@ Route::get('/', [MainController::class,'index'])->name('home');
 
 Route::get('/contactUs', [ContactController::class,'index'])->name('contactUs');
 Route::post('/addContactUs', [ContactController::class,'store'])->name('addContactUs');
+Route::get('/Shop', [ShoppingController::class,'index'])->name('Shop');
 
 Route::get('/account', [AuthenticationController::class,'index'])->name('account');
 Route::post('/UserAccount', [AuthenticationController::class,'store'])->name('UserAccount');
 Route::post('/login', [AuthenticationController::class,'login'])->name('login');
 Route::get('/logout', [AuthenticationController::class,'logout'])->name('logout');
+
 Route::group(['namespace'=>'UserAccount','middleware'=>'checkUserLogin','prefix'=>'UserDashboard'],function () {
     Route::get('', [ProfileController::class,'show'])->name('UserDashboard');
     Route::put('/UpdateProfile', [ProfileController::class,'update'])->name('UpdateProfile');
     Route::put('/UpdatePassword', [ProfileController::class,'updatePassword'])->name('UpdatePassword');
 });
+
 Route::group(['namespace'=>'admin/pages','middleware'=>'checkAdminLogin','prefix'=>'AdminDashboard'],function () {
     Route::get('', [AdminController::class,'index'])->name('AdminDashboard');
     Route::get('/Profile', [AdminController::class,'show'])->name('Profile');

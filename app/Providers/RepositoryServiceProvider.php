@@ -20,6 +20,8 @@ use App\Repositories\Main\IMain;
 use App\Repositories\Main\Main;
 use App\Repositories\Product\IProducts;
 use App\Repositories\Product\Products;
+use App\Repositories\Shop\IShop;
+use App\Repositories\Shop\Shop;
 use App\Repositories\Size\ISizes;
 use App\Repositories\Size\Sizes;
 use App\Repositories\User\IUsers;
@@ -59,6 +61,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(ICoupons::class,Coupons::class);
         $this->app->bind(IProducts::class,Products::class);
         $this->app->bind(IMain::class,Main::class);
+        $this->app->bind(IShop::class,Shop::class);
     }
 
     /**
