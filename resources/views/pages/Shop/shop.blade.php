@@ -14,59 +14,47 @@
 @endsection
 @section('content')
     <main>
-        <!-- Category Search Start -->
-        <section class="search">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="search-wrapper">
-                        <form class="search-wrapper-box">
-                            <input type="text" placeholder="Search Here.">
-                            <button class="btn bg-primary" type="submit">SEARCH</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Category Search End -->
-
         <!-- Category item start -->
         <section class="categoryitem">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="categoryitem-wrapper">
-                        <div class="categoryitem-wrapper-itembox">
-                            <h6>Category</h6>
-                            <select>
-                                @foreach($categories as $category)
-                                <option value="{{$category->id}}">{{$category->title}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="categoryitem-wrapper-itembox">
-                            <h6>Brand</h6>
-                            <select>
-                                @foreach($brands as $brand)
-                                    <option value="{{$brand->id}}">{{$brand->title}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="categoryitem-wrapper-price">
-                            <h6>Price</h6>
-                            <form class="price-item">
-                                <input type="number" name="minPrice" placeholder="Min">
-                                <span>|</span>
-                                <input type="number" name="maxPrice" placeholder="Max">
-                            </form>
-                        </div>
-                        <div class="categoryitem-wrapper-itembox">
-                            <h6>Sort By</h6>
-                            <select>
-                                <option value="date">The newest</option>
-                                <option value="cheap">Cheapest</option>
-                                <option value="expensive">The most expensive</option>
-                            </select>
-                        </div>
-                    </div>
+                <div class="justify-content-center">
+                    <form action="{{route('Shop')}}" method="get">
+                            <div class="categoryitem-wrapper" style="width: unset">
+                                <div class="categoryitem-wrapper-itembox">
+                                    <h6>Title</h6>
+                                        <input type="text" class="nice-select" style="cursor: auto" name="title" @if(isset($_GET['title'])) value="{{$_GET['title']}}" @endif placeholder="Product title...">
+                                </div>
+                                <div class="categoryitem-wrapper-itembox">
+                                    <h6>Category</h6>
+                                    <select name="category">
+                                        <option value="" selected>All</option>
+                                        @foreach($categories as $category)
+                                            <option @if(isset($_GET['category']) && $_GET['category']==$category->id) selected @endif value="{{$category->id}}">{{$category->title}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="categoryitem-wrapper-itembox">
+                                    <h6>Brand</h6>
+                                    <select name="brand">
+                                        <option value="" selected>All</option>
+                                        @foreach($brands as $brand)
+                                            <option @if(isset($_GET['brand']) && $_GET['brand']==$brand->id) selected @endif value="{{$brand->id}}">{{$brand->title}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="categoryitem-wrapper-itembox">
+                                    <h6>Sort By</h6>
+                                    <select name="sort">
+                                        <option @if(isset($_GET['sort']) && $_GET['sort']=='date') selected @endif value="date">The newest</option>
+                                        <option @if(isset($_GET['sort']) && $_GET['sort']=='cheap') selected @endif value="cheap">Cheapest</option>
+                                        <option @if(isset($_GET['sort']) && $_GET['sort']=='expensive') selected @endif value="expensive">The most expensive</option>
+                                    </select>
+                                </div>
+                                <div class="categoryitem-wrapper-itembox">
+                                    <input type="submit" class="btn btn-primary p-filter-btn" value="Filter">
+                                </div>
+                            </div>
+                        </form>
                 </div>
             </div>
         </section>
@@ -76,6 +64,9 @@
         <section class="populerproduct bg-white p-0 shop-product">
             <div class="container">
                 <div class="row">
+                    @if ($values->isEmpty())
+                        <div class="col-md-12 text-center" >Oops! No matching products found</div>
+                    @endif
                     @foreach($values as $product)
                         <div class="col-md-4 col-sm-6">
                             <div class="product-item">
@@ -119,6 +110,6 @@
             </div>
         </section>
         <!-- Product End -->
-        {{ $values->links('vendor.pagination.custom')}}
+        {!! $values->appends(Request::except('page'))->links('vendor.pagination.custom') !!}
     </main>
 @endsection

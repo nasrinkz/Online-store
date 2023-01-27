@@ -13904,3 +13904,13 @@ footer {
 .error-text{
     font-size: small;
 }
+.p-filter-btn{
+    width: inherit;
+    height: 42px;
+    margin-top: 22px;
+    line-height: 5px;
+}
+.search-icon{
+    background: none;
+    border: none;
+}

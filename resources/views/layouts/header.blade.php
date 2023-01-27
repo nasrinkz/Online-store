@@ -88,18 +88,16 @@
                                     </svg>
                                 </a>
                                 <ul class="sub-menu">
-                                    <li><a href="javascript:void(0)">Category 1</a></li>
-                                    <li><a href="javascript:void(0)">Category 2</a></li>
-                                    <li><a href="javascript:void(0)">Category 3</a></li>
-                                    <li><a href="javascript:void(0)">Category 4</a></li>
-                                    <li><a href="javascript:void(0)">Category 5</a></li>
+                                    @foreach($categoriesMenu as $cat)
+                                    <li><a href="javascript:void(0)">{{$cat->title}}</a></li>
+                                    @endforeach
                                 </ul>
                             </li>
                             <li><a href="javascript:void(0)">Sales</a></li>
                         </ul>
-                        <div class="search-bar">
-                            <input type="text" placeholder="Search for product...">
-                            <div class="icon">
+                        <form action="{{route('Shop')}}" method="get" class="search-bar">
+                            <input type="text" name="search" @if(isset($_GET['search'])) value="{{$_GET['search']}}" @endif placeholder="Search for product...">
+                            <button type="submit" class="icon search-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20.414" height="20.414"
                                     viewBox="0 0 20.414 20.414">
                                     <g id="Search_Icon" data-name="Search Icon" transform="translate(1 1)">
@@ -111,8 +109,8 @@
                                             stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                                     </g>
                                 </svg>
-                            </div>
-                        </div>
+                            </button>
+                        </form>
                         <div class="menu-icon ml-auto">
                             <ul>
                                 <li>

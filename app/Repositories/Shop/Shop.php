@@ -11,19 +11,29 @@ class Shop implements IShop
 
     function showProducts($request)
     {
-        $values=Product::whereStatus('1')->when($request->has("title"),function($q)use($request){
-            return $q->where("title","like","%".$request->get("title")."%");
-        })->when($request->has("sellingPrice"),function($q)use($request){
-            return $q->where("sellingPrice","like","%".$request->get("sellingPrice")."%");
-        })->when($request->has("category_id") && !empty($request->category_id),function($q)use($request){
-            return $q->where("category_id",$request->get("category_id"));
-        })->latest()->paginate(3);
+        $sort = 'DESC';
+        if ($request->sort=='date'){
+            $sortBy = 'created_at';
+        }elseif ($request->sort=='cheap'){
+            $sortBy = 'sellingPrice';
+            $sort = 'ASC';
+        }else{
+            $sortBy = 'sellingPrice';
+        }
+        $values=Product::whereStatus('1')->when($request->has("search"),function($q)use($request){
+            return $q->where("title","like",'%'.$request->get("search").'%');
+        })->when($request->has("title"),function($q)use($request){
+            return $q->where("title","like",'%'.$request->get("title").'%');
+        })->when($request->has("brand")& !empty($request->brand),function($q)use($request){
+            return $q->where("brand_id","like",$request->get("brand"));
+        })->when($request->has("category") && !empty($request->category),function($q)use($request){
+            return $q->where("category_id",$request->get("category"));
+        })->orderBy($sortBy,$sort)->paginate(1);
 
-//        $colors=Color::whereStatus('1')->orderBy('title')->get();
-//        $sizes=Size::whereStatus('1')->orderBy('title')->get();
         $brands=Brand::whereStatus('1')->orderBy('title')->get();
         $categories=Category::whereStatus('1')->orderBy('title')->get();
 
         return [$values,$brands,$categories];
     }
+
 }
