@@ -36,7 +36,6 @@ class Main implements IMain
             $productCount += [$category->id => $count];
 
         }
-        $categoriesMenu=Category::whereStatus('1')->orderBy('title')->get();
-        return [$headerProduct,$brands,$specialProducts,$middleBanner,$topSales,$categories,$productCount,$categoriesMenu];
+        return [$headerProduct,$brands,$specialProducts,$middleBanner,$topSales,$categories,$productCount];
     }
 }

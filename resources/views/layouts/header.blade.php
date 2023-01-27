@@ -88,6 +88,7 @@
                                     </svg>
                                 </a>
                                 <ul class="sub-menu">
+                                    <?php $categoriesMenu = \App\Models\Category::whereStatus('1')->orderBy('title')->get() ?>
                                     @foreach($categoriesMenu as $cat)
                                     <li><a href="javascript:void(0)">{{$cat->title}}</a></li>
                                     @endforeach

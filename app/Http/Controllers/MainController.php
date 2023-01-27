@@ -23,7 +23,6 @@ class MainController extends Controller
         $topSales = $data[4];
         $categories = $data[5];
         $productCount = $data[6];
-        $categoriesMenu = $data[7];
-        return view('pages.index',compact('headerProduct','brands','specialProducts','middleBanner','topSales','categories','productCount','categoriesMenu'));
+        return view('pages.index',compact('headerProduct','brands','specialProducts','middleBanner','topSales','categories','productCount'));
     }
 }

@@ -108,7 +108,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="features-morebutton text-center">
-                                <a class="btn bt-glass" href="#">View All Products</a>
+                                <a class="btn bt-glass" href="{{route('ShopFeatured',1)}}">View All Products</a>
                             </div>
                         </div>
                     </div>
