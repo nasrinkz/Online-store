@@ -23,9 +23,9 @@ class Main implements IMain
         $specialProducts = Product::where(['status'=>'1','special'=>'1'])->orderByDesc('id')->limit(10)->get();
         $middleBanner = Banner::where(['status'=>'1','position'=>'middle'])->first();
         $topSales =OrderDetail::leftJoin('products','products.id','=','order_details.product_id')
-            ->select('products.cover','products.title','products.sellingPrice','products.originalPrice','order_details.product_id',
+            ->select('products.id','products.cover','products.title','products.sellingPrice','products.originalPrice','order_details.product_id',
                 DB::raw('SUM(order_details.number) as total'))
-            ->groupBy('products.cover','products.title','products.sellingPrice','products.originalPrice','order_details.product_id')
+            ->groupBy('products.id','products.cover','products.title','products.sellingPrice','products.originalPrice','order_details.product_id')
             ->orderBy('total','desc')
             ->limit(6)
             ->get();

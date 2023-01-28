@@ -50,7 +50,7 @@
                             @foreach($specialProducts as $product)
                             <div class="product-item">
                                 <div class="product-item-image">
-                                    <a href="Shop/product-details.blade.php"><img src="{{asset($product->cover)}}" alt="{{$product->title}}"
+                                    <a href="{{route('ProductDetails',$product->id)}}"><img src="{{asset($product->cover)}}" alt="{{$product->title}}"
                                                                                   class="img-fluid"></a>
                                     <div class="cart-icon">
                                         <a href="#"><i class="far fa-heart"></i></a>
@@ -79,7 +79,7 @@
                                     </div>
                                 </div>
                                 <div class="product-item-info">
-                                    <a href="Shop/product-details.blade.php">{{$product->title}}</a>
+                                    <a href="{{route('ProductDetails',$product->id)}}">{{$product->title}}</a>
                                     <span>{{'$'.$product->sellingPrice}}</span> <del>{{'$'.$product->originalPrice}}</del>
                                 </div>
                             </div>
@@ -151,7 +151,7 @@
                                         </div>
                                     </div>
 
-                                    <a class="btn bg-primary" href="#">Get Started</a>
+                                    <a class="btn bg-primary" href="{{route('Shop')}}">Get Started</a>
                                 </div>
                             </div>
                         </div>
@@ -175,7 +175,7 @@
                         <div class="col-md-4 col-sm-6">
                             <div class="product-item">
                                 <div class="product-item-image">
-                                    <a href="Shop/product-details.blade.php"><img src="{{asset($topSale->cover)}}" alt="{{$topSale->title}}"
+                                    <a href="{{route('ProductDetails',$topSale->id)}}"><img src="{{asset($topSale->cover)}}" alt="{{$topSale->title}}"
                                                                                   class="img-fluid"></a>
                                     <div class="cart-icon">
                                         <a href="#"><i class="far fa-heart"></i></a>
@@ -204,7 +204,7 @@
                                     </div>
                                 </div>
                                 <div class="product-item-info">
-                                    <a href="Shop/product-details.blade.php">{{$topSale->title}}</a>
+                                    <a href="{{route('ProductDetails',$topSale->id)}}">{{$topSale->title}}</a>
                                     <span>{{'$'.$topSale->sellingPrice}}</span> <del>{{'$'.$topSale->originalPrice}}</del>
                                 </div>
                             </div>
