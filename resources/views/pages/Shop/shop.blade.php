@@ -71,8 +71,8 @@
                         <div class="col-md-4 col-sm-6">
                             <div class="product-item">
                                 <div class="product-item-image">
-                                    <a href="../product-details.blade.php"><img src="{{$product->cover}}" alt="{{$product->title}}"
-                                                                                class="img-fluid"></a>
+                                    <a href="product-details.blade.php"><img src="{{asset($product->cover)}}" alt="{{$product->title}}"
+                                                                             class="img-fluid"></a>
                                     <div class="cart-icon">
                                         <a href="#"><i class="far fa-heart"></i></a>
                                         <a href="#">
@@ -100,7 +100,7 @@
                                     </div>
                                 </div>
                                 <div class="product-item-info">
-                                    <a href="../product-details.blade.php">{{$product->title}}</a>
+                                    <a href="product-details.blade.php">{{$product->title}}</a>
                                     <span>{{'$'.$product->sellingPrice}}</span> <del>{{'$'.$product->originalPrice}}</del>
                                 </div>
                             </div>

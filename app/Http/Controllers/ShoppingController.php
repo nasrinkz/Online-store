@@ -27,4 +27,12 @@ class ShoppingController extends Controller
         return view('pages.shop.shop', compact('values','brands','categories'));
     }
 
+    public function details($id)
+    {
+        $data = $this->shop->details($id);
+        $value = $data[0];
+        $products = $data[1];
+        return view('pages.shop.product-details',compact('value','products'));
+    }
+
 }

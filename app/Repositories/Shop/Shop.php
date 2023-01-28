@@ -36,4 +36,10 @@ class Shop implements IShop
         return [$values,$brands,$categories];
     }
 
+    function details($id){
+        $value = Product::findOrFail($id);
+        $products = Product::whereStatus('1')->where("category_id",$value->category_id)->orderByDesc('id')->limit(6)->get();
+        return [$value,$products];
+    }
+
 }

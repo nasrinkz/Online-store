@@ -11,7 +11,7 @@
                             <div class="banner-area__content">
                                 <h2>{{$headerProduct->title}}</h2>
                                 <p>{{$headerProduct->shortDescription}}</p>
-                                <a class="btn bg-primary" href="#">Shop Now</a>
+                                <a class="btn bg-primary" href="{{route('ProductDetails',$headerProduct->id)}}">Shop Now</a>
                             </div>
                         </div>
                         <div class="col-lg-6 order-1 order-lg-2">
@@ -50,8 +50,8 @@
                             @foreach($specialProducts as $product)
                             <div class="product-item">
                                 <div class="product-item-image">
-                                    <a href="product-details.blade.php"><img src="{{asset($product->cover)}}" alt="{{$product->title}}"
-                                                                             class="img-fluid"></a>
+                                    <a href="Shop/product-details.blade.php"><img src="{{asset($product->cover)}}" alt="{{$product->title}}"
+                                                                                  class="img-fluid"></a>
                                     <div class="cart-icon">
                                         <a href="#"><i class="far fa-heart"></i></a>
                                         <a href="#">
@@ -79,7 +79,7 @@
                                     </div>
                                 </div>
                                 <div class="product-item-info">
-                                    <a href="product-details.blade.php">{{$product->title}}</a>
+                                    <a href="Shop/product-details.blade.php">{{$product->title}}</a>
                                     <span>{{'$'.$product->sellingPrice}}</span> <del>{{'$'.$product->originalPrice}}</del>
                                 </div>
                             </div>
@@ -175,8 +175,8 @@
                         <div class="col-md-4 col-sm-6">
                             <div class="product-item">
                                 <div class="product-item-image">
-                                    <a href="product-details.blade.php"><img src="{{asset($topSale->cover)}}" alt="{{$topSale->title}}"
-                                                                             class="img-fluid"></a>
+                                    <a href="Shop/product-details.blade.php"><img src="{{asset($topSale->cover)}}" alt="{{$topSale->title}}"
+                                                                                  class="img-fluid"></a>
                                     <div class="cart-icon">
                                         <a href="#"><i class="far fa-heart"></i></a>
                                         <a href="#">
@@ -204,7 +204,7 @@
                                     </div>
                                 </div>
                                 <div class="product-item-info">
-                                    <a href="product-details.blade.php">{{$topSale->title}}</a>
+                                    <a href="Shop/product-details.blade.php">{{$topSale->title}}</a>
                                     <span>{{'$'.$topSale->sellingPrice}}</span> <del>{{'$'.$topSale->originalPrice}}</del>
                                 </div>
                             </div>

@@ -29,6 +29,7 @@
 <script src="{{asset('src/js/jquery.min.js')}}"></script>
 <script src="{{asset('src/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('src/scss/vendors/plugin/js/slick.min.js')}}"></script>
+<script src="{{asset('src/scss/vendors/plugin/js/jquery.exzoom.js')}}"></script>
 <script src="{{asset('src/scss/vendors/plugin/js/jquery.nice-select.min.js')}}"></script>
 <script src="{{asset('dist/main.js')}}"></script>
 

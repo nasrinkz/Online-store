@@ -146,7 +146,7 @@
         exzoom_navSpan = exzoom_nav.find("span");
         navHeightWithBorder = g.navBorder * 2 + g.navHeight;
         g.exzoom_navWidth = (navHeightWithBorder + g.navItemMargin) * g.navItemNum;
-        g.exzoom_nav_innerWidth = (navHeightWithBorder + g.navItemMargin) * imgNum;
+        g.exzoom_nav_innerWidth = (navHeightWithBorder + g.navItemMargin) * (imgNum+1);
 
         exzoom_navSpan.eq(imgIndex).addClass(navHightClass);
         exzoom_nav.css({
@@ -591,5 +591,5 @@
         return res;
     }
 
-// 闭包结束     
+// 闭包结束
 })(jQuery, window);
