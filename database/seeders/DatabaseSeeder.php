@@ -18,17 +18,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
-
-        for ($i=0;$i<=100;$i++) {
-            DB::table('articles')->insert([
-                'title' => $faker->name,
-                'body' => $faker->text,
-                'email' => $faker->email,
-                'updated_at' =>$faker->datetime,
-                'created_at' => $faker->datetime
-            ]);
-        }
+//        $faker = Faker::create();
+//
+//        for ($i=0;$i<=100;$i++) {
+//            DB::table('articles')->insert([
+//                'title' => $faker->name,
+//                'body' => $faker->text,
+//                'email' => $faker->email,
+//                'updated_at' =>$faker->datetime,
+//                'created_at' => $faker->datetime,
+//            ]);
+//        }
 
     }
 }

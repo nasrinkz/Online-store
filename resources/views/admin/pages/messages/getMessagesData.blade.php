@@ -12,7 +12,7 @@
     </thead>
     <tbody>
     @if ($values->isEmpty())
-        <tr class="odd text-center"><td valign="top" colspan="4" >No matching records found</td></tr>
+        <tr class="odd text-center"><td valign="top" colspan="7" >No matching records found</td></tr>
     @endif
     @php($num=1)
     @foreach($values as $value)

@@ -42,7 +42,7 @@
                                     <span>{{'$'.$value->sellingPrice}}</span> <del>{{'$'.$value->originalPrice}}</del>
                                 </div>
                             </div>
-                            <p>{{$value->description}}</p>
+                            <p>{!! $value->description !!}</p>
                             <div class="product-pricelist-selector">
                                 <div class="product-pricelist-selector-size">
                                     <h6>Sizes</h6>
@@ -196,7 +196,7 @@
                         @foreach($products as $product)
                             <div class="product-item">
                                 <div class="product-item-image">
-                                    <a href="product-details.blade.php"><img src="{{asset($product->cover)}}" alt="{{$product->title}}"
+                                    <a href="{{route('ProductDetails',$product->id)}}"><img src="{{asset($product->cover)}}" alt="{{$product->title}}"
                                                                              class="img-fluid"></a>
                                     <div class="cart-icon">
                                         <a href="#"><i class="far fa-heart"></i></a>
@@ -225,7 +225,7 @@
                                     </div>
                                 </div>
                                 <div class="product-item-info">
-                                    <a href="product-details.blade.php">{{$product->title}}</a>
+                                    <a href="{{route('ProductDetails',$product->id)}}">{{$product->title}}</a>
                                     <span>{{'$'.$product->sellingPrice}}</span> <del>{{'$'.$product->originalPrice}}</del>
                                 </div>
                             </div>

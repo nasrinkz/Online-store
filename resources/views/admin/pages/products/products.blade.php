@@ -146,6 +146,16 @@
                                                                 @endif
                                                                 <div class="input-group mb-0 mt-4">
                                                                     <div class="input-group-prepend">
+                                                                        <span class="input-group-text">H</span>
+                                                                    </div>
+                                                                    <select class="form-control" name="header">
+                                                                        <option selected value="" disabled>Choose header product</option>
+                                                                        <option value="yes">Yes</option>
+                                                                        <option value="no">No</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="input-group mb-0 mt-4">
+                                                                    <div class="input-group-prepend">
                                                                         <span class="input-group-text">S</span>
                                                                     </div>
                                                                     <select class="form-control" required name="special">

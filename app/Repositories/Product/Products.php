@@ -100,6 +100,7 @@ class Products implements IProducts
         $row->special = $data['special'];
         $row->colors = $data['color_id'];
         $row->sizes = $data['size_id'];
+        $row->header = $data['header'];
         $row->save();
         $product_id = $row->id;
 
@@ -215,6 +216,7 @@ class Products implements IProducts
         $data->status = $request->status;
         $data->colors = $request->color_id;
         $data->sizes = $request->size_id;
+        $data->header = $request->header;
         $data->save();
 
         ProductSize::where("product_id",$id)->delete();

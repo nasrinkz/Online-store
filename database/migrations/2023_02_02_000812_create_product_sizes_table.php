@@ -13,12 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('wishlists', function (Blueprint $table) {
+        Schema::create('product_sizes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('size_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('number')->nullable();
             $table->timestamps();
         });
+        DB::table('product_sizes')->insert([
+            ['product_id' => 1, 'size_id' => 1,'number'=>5],
+            ['product_id' => 2, 'size_id' => 1,'number'=>5],
+            ['product_id' => 3, 'size_id' => 1,'number'=>5],
+        ]);
     }
 
     /**
@@ -28,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wishlists');
+        Schema::dropIfExists('product_sizes');
     }
 };

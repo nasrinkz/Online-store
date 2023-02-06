@@ -22,6 +22,9 @@ return new class extends Migration
             $table->enum('status',[0,1])->default(1);
             $table->timestamps();
         });
+        DB::table('banners')->insert([
+            ['title' => 'banner', 'image' => 'images/banners/photo_57872287296914543000.jpeg','position'=>'middle'],
+        ]);
     }
 
     /**

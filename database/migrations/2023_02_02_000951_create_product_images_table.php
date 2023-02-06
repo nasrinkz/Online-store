@@ -19,6 +19,11 @@ return new class extends Migration
             $table->foreignId('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
+        DB::table('product_images')->insert([
+            ['product_id' => 1, 'image' => 'images/products/images/1-big-mage.jpg'],
+            ['product_id' => 2, 'image' => 'images/products/images/2.jpg'],
+            ['product_id' => 3, 'image' => 'images/products/images/4-big-image.jpg']
+        ]);
     }
 
     /**

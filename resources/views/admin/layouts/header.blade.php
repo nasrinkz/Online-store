@@ -37,7 +37,7 @@
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <i class="far fa-bell"></i>
-                <span class="badge badge-warning navbar-badge">{{}}</span>
+                <span class="badge badge-warning navbar-badge">{{Session::get('messagesCount')}}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <span class="dropdown-item dropdown-header">{{Session::get('messagesCount')}} Notifications</span>

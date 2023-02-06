@@ -22,7 +22,7 @@
                                         </svg>
                                     </div>
                                     <div class="text">
-                                        <span>olog.wetbise@mail.com</span>
+                                        <span>ns.kazemi96@gmail.com</span>
                                     </div>
                                 </div>
                                 <div class="cta">
@@ -46,9 +46,9 @@
                                 <div class="language">
                                     <select>
                                         <option data-display="English">English</option>
-                                        <option value="1">Arabic</option>
-                                        <option value="2">Aramaic</option>
-                                        <option value="4">Bangla</option>
+{{--                                        <option value="1">Arabic</option>--}}
+{{--                                        <option value="2">Aramaic</option>--}}
+{{--                                        <option value="4">Bangla</option>--}}
                                     </select>
                                 </div>
 {{--                                <div class="currency">--}}
@@ -70,7 +70,7 @@
                 <div class="d-none d-lg-block">
                     <nav class="menu-area d-flex align-items-center">
                         <div class="logo">
-                            <a href="index.html"><img src="{{asset('dist/images/logo/logo.png')}}" alt="logo" /></a>
+{{--                            <a href="#">Nika Store</a>--}}
                         </div>
                         <ul class="main-menu d-flex align-items-center">
                             <li><a class="active" href="{{route('home')}}">Home</a></li>
@@ -90,7 +90,7 @@
                                 <ul class="sub-menu">
                                     <?php $categoriesMenu = \App\Models\Category::whereStatus('1')->orderBy('title')->get() ?>
                                     @foreach($categoriesMenu as $cat)
-                                    <li><a href="javascript:void(0)">{{$cat->title}}</a></li>
+                                    <li><a href="{{route('Shop','category='.$cat->id)}}">{{$cat->title}}</a></li>
                                     @endforeach
                                 </ul>
                             </li>
@@ -125,11 +125,12 @@
                                                     stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                                             </g>
                                         </svg>
-                                        <span class="heart">3</span>
+{{--                                        <span class="heart"></span>--}}
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="cart.html"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                    <a href="cart.html">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
                                             viewBox="0 0 22 22">
                                             <g id="Icon" transform="translate(-1524 -89)">
                                                 <ellipse id="Ellipse_2" data-name="Ellipse 2" cx="0.909" cy="0.952"
@@ -146,7 +147,7 @@
                                                     stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                                             </g>
                                         </svg>
-                                        <span class="cart">3</span>
+{{--                                        <span class="cart"></span>--}}
                                     </a>
                                 </li>
                                 <li>
@@ -190,10 +191,9 @@
                                 </svg>
                             </div>
                         </div>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="shop.html">Men</a></li>
-                        <li><a href="shop.html">Women</a></li>
-                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="{{route('home')}}">Home</a></li>
+                        <li><a href="{{route('contactUs')}}">Contact us</a></li>
+                        <li><a href="{{route('Shop')}}">Shop</a></li>
                         <li>
                             <a href="javascript:void(0)">Category
                                 <svg xmlns="http://www.w3.org/2000/svg" width="9.98" height="5.69"
@@ -206,18 +206,17 @@
                                 </svg>
                             </a>
                             <ul class="sub-menu">
-                                <li><a href="javascript:void(0)">Category 1</a></li>
-                                <li><a href="javascript:void(0)">Category 2</a></li>
-                                <li><a href="javascript:void(0)">Category 3</a></li>
-                                <li><a href="javascript:void(0)">Category 4</a></li>
-                                <li><a href="javascript:void(0)">Category 5</a></li>
+                                <?php $categoriesMenu = \App\Models\Category::whereStatus('1')->orderBy('title')->get() ?>
+                                @foreach($categoriesMenu as $cat)
+                                    <li><a href="{{route('Shop','category='.$cat->id)}}">{{$cat->title}}</a></li>
+                                @endforeach
                             </ul>
                         </li>
                         <li><a href="javascript:void(0)">Sales</a></li>
                     </div>
                     <div class="mobile-nav d-flex align-items-center justify-content-between">
                         <div class="logo">
-                            <a href="index.html"><img src="{{asset('dist/images/logo/logo.png')}}" alt="logo" /></a>
+{{--                            <a href="index.html"><img src="{{asset('dist/images/logo/logo.png')}}" alt="logo" /></a>--}}
                         </div>
                         <div class="search-bar">
                             <input type="text" placeholder="Search for product...">
@@ -247,7 +246,7 @@
                                                     stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                                             </g>
                                         </svg>
-                                        <span class="heart">3</span>
+{{--                                        <span class="heart">3</span>--}}
                                     </a>
                                 </li>
                                 <li>
@@ -269,11 +268,11 @@
                                                     stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                                             </g>
                                         </svg>
-                                        <span class="cart">3</span>
+{{--                                        <span class="cart">3</span>--}}
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="account.html">
+                                    <a href="@if(Auth::check()) @if(auth()->user()->user_group_id==1){{route('AdminDashboard')}} @else {{route('UserDashboard')}} @endif @else {{route('account')}}@endif">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20"
                                             viewBox="0 0 18 20">
                                             <g id="Account" transform="translate(1 1)">

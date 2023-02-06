@@ -15,11 +15,13 @@ class Main implements IMain
 
     public function index()
     {
-        $headerProduct = Product::whereMonth('created_at', Carbon::now()->month)->firstWhere('status','1');
-        if (!$headerProduct){
-            $headerProduct = Product::whereStatus('1')->get()->last();
-        }
-        $brands = Brand::select('image','title')->whereStatus('1')->orderByDesc('id')->limit(5)->get();
+//        $headerProduct = Product::whereMonth('created_at', Carbon::now()->month)->firstWhere('status','1');
+//        if (!$headerProduct){
+//            $headerProduct = Product::whereStatus('1')->get()->last();
+//        }
+        $headerProduct = Product::where(['header'=>'yes','status'=>'1'])->get()->last();
+
+        $brands = Brand::select('id','image','title')->whereStatus('1')->orderByDesc('id')->limit(5)->get();
         $specialProducts = Product::where(['status'=>'1','special'=>'1'])->orderByDesc('id')->limit(10)->get();
         $middleBanner = Banner::where(['status'=>'1','position'=>'middle'])->first();
         $topSales =OrderDetail::leftJoin('products','products.id','=','order_details.product_id')

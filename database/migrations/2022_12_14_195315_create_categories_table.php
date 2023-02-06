@@ -21,6 +21,12 @@ return new class extends Migration
             $table->enum('status',[0,1])->default(1);
             $table->timestamps();
         });
+        DB::table('categories')->insert([
+            ['title' => 'Smart', 'image' => 'images/categories/iphone.jpg'],
+            ['title' => 'Women', 'image' => 'images/categories/jumper.jpg'],
+            ['title' => 'Men', 'image' => 'images/categories/tree dasher.jpg'],
+            ['title' => 'Shoes', 'image' => 'images/categories/wool-shoe.jpg'],
+        ]);
     }
 
     /**

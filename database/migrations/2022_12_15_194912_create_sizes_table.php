@@ -20,6 +20,9 @@ return new class extends Migration
             $table->enum('status',[0,1])->default(1);
             $table->timestamps();
         });
+        DB::table('sizes')->insert([
+            ['title' => 'Large', 'symbol' => 'L'],
+        ]);
     }
 
     /**

@@ -19,6 +19,9 @@
             <div class="container">
                 <div class="justify-content-center">
                     <form action="{{route('Shop')}}" method="get">
+                        @if(isset($_GET['special']))
+                            <input type="hidden" name="special" value="1">
+                        @endif
                             <div class="categoryitem-wrapper" style="width: unset">
                                 <div class="categoryitem-wrapper-itembox">
                                     <h6>Title</h6>
@@ -71,7 +74,7 @@
                         <div class="col-md-4 col-sm-6">
                             <div class="product-item">
                                 <div class="product-item-image">
-                                    <a href="product-details.blade.php"><img src="{{asset($product->cover)}}" alt="{{$product->title}}"
+                                    <a href="{{route('ProductDetails',$product->id)}}"><img src="{{asset($product->cover)}}" alt="{{$product->title}}"
                                                                              class="img-fluid"></a>
                                     <div class="cart-icon">
                                         <a href="#"><i class="far fa-heart"></i></a>
@@ -100,7 +103,7 @@
                                     </div>
                                 </div>
                                 <div class="product-item-info">
-                                    <a href="product-details.blade.php">{{$product->title}}</a>
+                                    <a href="{{route('ProductDetails',$product->id)}}">{{$product->title}}</a>
                                     <span>{{'$'.$product->sellingPrice}}</span> <del>{{'$'.$product->originalPrice}}</del>
                                 </div>
                             </div>

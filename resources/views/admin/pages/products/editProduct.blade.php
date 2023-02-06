@@ -66,7 +66,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text">Description</span>
                                                     </div>
-                                                    <textarea class="form-control" name="description" placeholder="Description">{{$value->description}}</textarea>
+                                                    <textarea class="form-control" required name="description" placeholder="Description">{{$value->description}}</textarea>
                                                 </div>
                                                 <div class="input-group mb-0 mt-4">
                                                     <div class="input-group-prepend">
@@ -107,6 +107,15 @@
                                                 @if($errors->has('status'))
                                                     <span class="error-text text-danger">{{$errors->first('status')}}</span>
                                                 @endif
+                                                    <div class="input-group mb-0 mt-4">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">Header product</span>
+                                                        </div>
+                                                        <select class="form-control" name="header">
+                                                            <option @if($value->header=='yes') selected @endif value="yes">Yes</option>
+                                                            <option @if($value->header=='no') selected @endif value="no">No</option>
+                                                        </select>
+                                                    </div>
                                                     <div class="input-group mb-0 mt-4">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text">Special</span>

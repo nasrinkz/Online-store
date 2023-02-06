@@ -20,6 +20,10 @@ return new class extends Migration
             $table->enum('status',[0,1])->default(1);
             $table->timestamps();
         });
+        DB::table('colors')->insert([
+            ['title' => 'Red', 'code' => '#B10000'],
+            ['title' => 'Yellow', 'code' => '#FFF232'],
+        ]);
     }
 
     /**

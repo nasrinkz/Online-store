@@ -13914,3 +13914,20 @@ footer {
     background: none;
     border: none;
 }
+.product-item-image img{
+    width: 370px !important;
+    height: 340px !important;
+}
+.productcategory-img img{
+    width: 150px !important;
+    height: 150px !important;
+}
+@media screen and (min-width: 768px) {
+    .banner-area__img img{
+        max-width: 529px !important;
+        max-height: 566px !important;
+    }
+}
+.exzoom_img_box img{
+    max-height: 430px !important;
+}

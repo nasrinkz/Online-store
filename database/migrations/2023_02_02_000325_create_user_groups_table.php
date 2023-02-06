@@ -20,6 +20,10 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->timestamps();
         });
+        DB::table('user_groups')->insert([
+            ['id'=>1,'role' => 'Admin','description'=>'Store admin'],
+            ['id'=>2,'role' => 'Customer','description'=>'Store customers'],
+        ]);
     }
 
     /**

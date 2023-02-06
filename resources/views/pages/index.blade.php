@@ -10,7 +10,7 @@
                         <div class="col-lg-6 order-2 order-lg-1">
                             <div class="banner-area__content">
                                 <h2>{{$headerProduct->title}}</h2>
-                                <p>{{$headerProduct->shortDescription}}</p>
+                                <p>{!! $headerProduct->description !!}</p>
                                 <a class="btn bg-primary" href="{{route('ProductDetails',$headerProduct->id)}}">Shop Now</a>
                             </div>
                         </div>
@@ -25,7 +25,7 @@
                             <div class="brand-area">
                                 @foreach($brands as $brand)
                                 <div class="brand-area-image">
-                                    <img src="{{asset($brand->image)}}" title="{{$brand->title}}" alt="Brand" class="img-fluid">
+                                    <a href="{{route('Shop','brand='.$brand->id)}}"><img src="{{asset($brand->image)}}" title="{{$brand->title}}" alt="Brand" class="img-fluid"></a>
                                 </div>
                                 @endforeach
                             </div>
@@ -108,7 +108,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="features-morebutton text-center">
-                                <a class="btn bt-glass" href="{{route('ShopFeatured',1)}}">View All Products</a>
+                                <a class="btn bt-glass" href="{{route('Shop','special=1')}}">View All Products</a>
                             </div>
                         </div>
                     </div>
@@ -221,7 +221,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="section-title">
-                                <h2>Shop with top categorys</h2>
+                                <h2>Shop with top categories</h2>
                             </div>
                         </div>
                     </div>
@@ -230,10 +230,10 @@
                         <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                             <div class="productcategory text-center">
                                 <div class="productcategory-img">
-                                    <a href="#"><img src="{{asset($category->image)}}" alt="images"></a>
+                                    <a href="{{route('Shop','category='.$category->id)}}"><img src="{{asset($category->image)}}" alt="images"></a>
                                 </div>
                                 <div class="productcategory-text">
-                                    <a href="#">
+                                    <a href="{{route('Shop','category='.$category->id)}}">
                                         <h6>{{$category->title}}</h6>
                                         <span>{{$productCount[$category->id] .' products'}}</span>
                                     </a>
