@@ -31,7 +31,7 @@ class Main implements IMain
             ->orderBy('total','desc')
             ->limit(6)
             ->get();
-        $categories = Category::whereStatus('1')->orderByDesc('id')->limit(8)->get();
+        $categories = Category::whereStatus('1')->orderByDesc('id')->limit(4)->get();
         $productCount = [];
         foreach ($categories as $category){
             $count = $category->products()->where(['status'=>'1'])->count();

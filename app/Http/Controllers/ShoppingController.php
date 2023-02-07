@@ -35,4 +35,12 @@ class ShoppingController extends Controller
         return view('pages.shop.product-details',compact('value','products'));
     }
 
+    public function categories()
+    {
+        $data = $this->shop->categories();
+        $values = $data[0];
+        $productCount = $data[1];
+        return view('pages.categories.categories',compact('values','productCount'));
+    }
+
 }

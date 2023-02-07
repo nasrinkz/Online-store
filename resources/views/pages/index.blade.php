@@ -245,7 +245,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="features-morebutton text-center">
-                                <a class="btn bt-glass" href="#">View All Categorys</a>
+                                <a class="btn bt-glass" href="{{route('Categories')}}">View All Categorys</a>
                             </div>
                         </div>
                     </div>

@@ -44,4 +44,14 @@ class Shop implements IShop
         return [$value,$products];
     }
 
+    function categories(){
+        $categories = Category::whereStatus('1')->orderBy('title')->paginate(12);
+        $productCount = [];
+        foreach ($categories as $category){
+            $count = $category->products()->where(['status'=>'1'])->count();
+            $productCount += [$category->id => $count];
+        }
+        return [$categories,$productCount];
+    }
+
 }
