@@ -43,4 +43,18 @@ class ShoppingController extends Controller
         return view('pages.categories.categories',compact('values','productCount'));
     }
 
+    public function sales(Request $request)
+    {
+        $data = $this->shop->sales($request);
+        $values = $data[0];
+        $brands = $data[1];
+        $categories = $data[2];
+
+        if($request->ajax()){
+            return view('pages.shop.salesProducts', compact('values','brands','categories'));
+        }
+        return view('pages.shop.salesProducts', compact('values','brands','categories'));
+    }
+
+
 }

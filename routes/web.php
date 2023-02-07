@@ -35,6 +35,7 @@ Route::get('/', [MainController::class,'index'])->name('home');
 Route::get('/contactUs', [ContactController::class,'index'])->name('contactUs');
 Route::post('/addContactUs', [ContactController::class,'store'])->name('addContactUs');
 Route::get('/Shop', [ShoppingController::class,'index'])->name('Shop');
+Route::get('/Sales', [ShoppingController::class,'sales'])->name('Sales');
 Route::get('/ProductDetails/{id}', [ShoppingController::class,'details'])->name('ProductDetails');
 Route::get('/Categories', [ShoppingController::class,'categories'])->name('Categories');
 

@@ -94,7 +94,7 @@
                                     @endforeach
                                 </ul>
                             </li>
-                            <li><a href="javascript:void(0)">Sales</a></li>
+                            <li><a href="{{route('Sales')}}">Sales</a></li>
                         </ul>
                         <form action="{{route('Shop')}}" method="get" class="search-bar">
                             <input type="text" name="search" @if(isset($_GET['search'])) value="{{$_GET['search']}}" @endif placeholder="Search for product...">
@@ -212,7 +212,7 @@
                                 @endforeach
                             </ul>
                         </li>
-                        <li><a href="javascript:void(0)">Sales</a></li>
+                        <li><a href="{{route('Sales')}}">Sales</a></li>
                     </div>
                     <div class="mobile-nav d-flex align-items-center justify-content-between">
                         <div class="logo">
