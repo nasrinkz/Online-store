@@ -73,11 +73,11 @@
 {{--                            <a href="#">Nika Store</a>--}}
                         </div>
                         <ul class="main-menu d-flex align-items-center">
-                            <li><a class="active" href="{{route('home')}}">Home</a></li>
-                            <li><a href="{{route('contactUs')}}">Contact us</a></li>
-                            <li><a href="{{route('Shop')}}">Shop</a></li>
+                            <li><a {{ Request::segment(1)  == '' ? "class="."active" : '' }} href="{{route('home')}}">Home</a></li>
+                            <li><a {{ Request::segment(1)  == 'contactUs' ? "class="."active" : '' }} href="{{route('contactUs')}}">Contact us</a></li>
+                            <li><a {{ Request::segment(1)  == 'Shop' ? "class="."active" : '' }} href="{{route('Shop')}}">Shop</a></li>
                             <li>
-                                <a href="javascript:void(0)">Category
+                                <a {{ Request::segment(1)  == 'Categories' ? "class="."active" : '' }} href="javascript:void(0)">Category
                                     <svg xmlns="http://www.w3.org/2000/svg" width="9.98" height="5.69"
                                         viewBox="0 0 9.98 5.69">
                                         <g id="Arrow" transform="translate(0.99 0.99)">
@@ -94,7 +94,7 @@
                                     @endforeach
                                 </ul>
                             </li>
-                            <li><a href="{{route('Sales')}}">Sales</a></li>
+                            <li><a {{ Request::segment(1)  == 'Sales' ? "class="."active" : '' }}  href="{{route('Sales')}}">Sales</a></li>
                         </ul>
                         <form action="{{route('Shop')}}" method="get" class="search-bar">
                             <input type="text" name="search" @if(isset($_GET['search'])) value="{{$_GET['search']}}" @endif placeholder="Search for product...">
