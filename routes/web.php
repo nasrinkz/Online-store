@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\User\ProfileController;
+use App\Http\Controllers\User\OrderController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ShoppingController;
 
@@ -48,6 +49,8 @@ Route::group(['namespace'=>'UserAccount','middleware'=>'checkUserLogin','prefix'
     Route::get('', [ProfileController::class,'show'])->name('UserDashboard');
     Route::put('/UpdateProfile', [ProfileController::class,'update'])->name('UpdateProfile');
     Route::put('/UpdatePassword', [ProfileController::class,'updatePassword'])->name('UpdatePassword');
+    Route::get('/addWish/{productId}', [OrderController::class,'addWish'])->name('addWish');
+    Route::get('/removeWish/{productId}', [OrderController::class,'removeWish'])->name('removeWish');
 });
 
 Route::group(['namespace'=>'admin/pages','middleware'=>'checkAdminLogin','prefix'=>'AdminDashboard'],function () {

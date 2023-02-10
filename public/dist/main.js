@@ -126,3 +126,151 @@ $("document").ready(function(){
         $("div.alert").remove();
     }, 7000 ); // 7 secs
 });
+function addWish(placeholder,pID) {
+    let text = $(placeholder).attr('rel');
+    let pattern = /addWish/i;
+    if (text.match(pattern) == 'addWish'){
+        $.ajax({
+            url: $(placeholder).attr('rel')+pID,
+            type: "GET",
+            success: function (response) {
+                document.getElementById('F'+response).className = "fa fa-heart text-danger";
+                $(placeholder).attr('rel', 'http://127.0.0.1:8000/UserDashboard/removeWish/');
+            }
+        });
+    }else{
+        $.ajax({
+            url: $(placeholder).attr('rel')+pID,
+            type: "GET",
+            success: function (response) {
+                document.getElementById('F'+response).className = "far fa-heart";
+                $(placeholder).attr('rel', 'http://127.0.0.1:8000/UserDashboard/addWish/');
+            }
+        });
+    }
+    return false;
+}
+function removeWish(placeholder,pID) {
+    let text = $(placeholder).attr('rel');
+    let pattern = /removeWish/i;
+    if (text.match(pattern) == 'removeWish'){
+        $.ajax({
+            url: $(placeholder).attr('rel')+pID,
+            type: "GET",
+            success: function (response) {
+                document.getElementById('F'+response).className = "far fa-heart";
+                $(placeholder).attr('rel', 'http://127.0.0.1:8000/UserDashboard/addWish/');
+            }
+        });
+    }else{
+        $.ajax({
+            url: $(placeholder).attr('rel')+pID,
+            type: "GET",
+            success: function (response) {
+                document.getElementById('F'+response).className = "fa fa-heart text-danger";
+                $(placeholder).attr('rel', 'http://127.0.0.1:8000/UserDashboard/removeWish/');
+            }
+        });
+    }
+    return false;
+}
+function addWish2(placeholder,pID) {
+    let text = $(placeholder).attr('rel');
+    let pattern = /addWish/i;
+    if (text.match(pattern) == 'addWish'){
+        $.ajax({
+            url: $(placeholder).attr('rel')+pID,
+            type: "GET",
+            success: function (response) {
+                document.getElementById('T'+response).className = "fa fa-heart text-danger";
+                $(placeholder).attr('rel', 'http://127.0.0.1:8000/UserDashboard/removeWish/');
+            }
+        });
+    }else{
+        $.ajax({
+            url: $(placeholder).attr('rel')+pID,
+            type: "GET",
+            success: function (response) {
+                document.getElementById('T'+response).className = "far fa-heart";
+                $(placeholder).attr('rel', 'http://127.0.0.1:8000/UserDashboard/addWish/');
+            }
+        });
+    }
+    return false;
+}
+function removeWish2(placeholder,pID) {
+    let text = $(placeholder).attr('rel');
+    let pattern = /removeWish/i;
+    if (text.match(pattern) == 'removeWish'){
+        $.ajax({
+            url: $(placeholder).attr('rel')+pID,
+            type: "GET",
+            success: function (response) {
+                document.getElementById('T'+response).className = "far fa-heart";
+                $(placeholder).attr('rel', 'http://127.0.0.1:8000/UserDashboard/addWish/');
+            }
+        });
+    }else{
+        $.ajax({
+            url: $(placeholder).attr('rel')+pID,
+            type: "GET",
+            success: function (response) {
+                document.getElementById('T'+response).className = "fa fa-heart text-danger";
+                $(placeholder).attr('rel', 'http://127.0.0.1:8000/UserDashboard/removeWish/');
+            }
+        });
+    }
+    return false;
+}
+function addWish3(placeholder,pID) {
+    let text = $(placeholder).attr('rel');
+    let pattern = /addWish/i;
+    if (text.match(pattern) == 'addWish'){
+        $.ajax({
+            url: $(placeholder).attr('rel')+pID,
+            type: "GET",
+            success: function (response) {
+                document.getElementById('A'+response).style.display='block';
+                document.getElementById('B'+response).style.display='none';
+                $(placeholder).attr('rel', 'http://127.0.0.1:8000/UserDashboard/removeWish/');
+            }
+        });
+    }else{
+        $.ajax({
+            url: $(placeholder).attr('rel')+pID,
+            type: "GET",
+            success: function (response) {
+                document.getElementById('B'+response).style.display='block';
+                document.getElementById('A'+response).style.display='none';
+                $(placeholder).attr('rel', 'http://127.0.0.1:8000/UserDashboard/addWish/');
+            }
+        });
+    }
+    return false;
+}
+function removeWish3(placeholder,pID) {
+    let text = $(placeholder).attr('rel');
+    let pattern = /removeWish/i;
+    if (text.match(pattern) == 'removeWish'){
+        $.ajax({
+            url: $(placeholder).attr('rel')+pID,
+            type: "GET",
+            success: function (response) {
+                document.getElementById('A'+response).style.display='none';
+                document.getElementById('B'+response).style.display='block';
+                $(placeholder).attr('rel', 'http://127.0.0.1:8000/UserDashboard/addWish/');
+            }
+        });
+    }else{
+        $.ajax({
+            url: $(placeholder).attr('rel')+pID,
+            type: "GET",
+            success: function (response) {
+                document.getElementById('A'+response).style.display='block';
+                document.getElementById('B'+response).style.display='none';
+                $(placeholder).attr('rel', 'http://127.0.0.1:8000/UserDashboard/removeWish/');
+            }
+        });
+    }
+    return false;
+}

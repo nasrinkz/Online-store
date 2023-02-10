@@ -186,10 +186,10 @@ function coupon_validation(){
     var currentDateTime = new Date().toJSON().slice(0, 10);
 
     if(title==""){
-        form_alert.textContent ='فیلد نام فرستنده نباید خالی باشد';
+        form_alert.textContent ='The title field is required.';
         event.preventDefault();
     }else if(code=="") {
-        form_alert.textContent = 'فیلد نام فرستنده نباید خالی باشد';
+        form_alert.textContent = 'The code field is required.';
         event.preventDefault();
     }else if (date1 < currentDateTime) {
         form_alert.textContent = 'Start date can`t be before today' ;

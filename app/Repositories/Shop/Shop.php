@@ -5,6 +5,7 @@ namespace App\Repositories\Shop;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Wish;
 
 class Shop implements IShop
 {
@@ -81,6 +82,19 @@ class Shop implements IShop
         $categories=Category::whereStatus('1')->orderBy('title')->get();
 
         return [$values,$brands,$categories];
+    }
+
+    function addWish($productId){
+        $row = new Wish();
+        $row->product_id = $productId;
+        $row->user_id = auth()->user()->id;
+        $row->save();
+        return True;
+    }
+
+    function removeWish($productId){
+        $data = Wish::where('product_id',$productId)->delete();
+        return True;
     }
 
 }

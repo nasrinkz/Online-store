@@ -25,4 +25,8 @@ class Product extends Model
     public function sizesTable(){
         return $this->hasMany(ProductSize::class,'product_id');
     }
+    public function wishes()
+    {
+        return $this->hasMany(Wish::class,'product_id');
+    }
 }

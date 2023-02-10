@@ -93,8 +93,15 @@
                                 <a class="btn cart-bg " href="#">Add to cart
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
                                 </a>
-                                <a class="btn bg-primary cart-hart" href="#">
-                                    <svg id="Heart" xmlns="http://www.w3.org/2000/svg"
+                                @php($wishExist = 0)
+                                @foreach($value->wishes as $wish)
+                                    @if($wish->user_id == auth()->user()->id)
+                                        @php($wishExist = 1)
+                                    @endif
+                                @endforeach
+                                @if(Auth::check())
+                                <a class="btn bg-primary cart-hart" href="javascript:" @if($wishExist == 0) onClick="addWish3(this,{{$value->id}});" rel="{{url('UserDashboard/addWish')}}/" @else onclick="removeWish3(this,{{$value->id}})" rel="{{url('UserDashboard/removeWish')}}/" @endif>
+                                    <svg id="{{'A'.$value->id}}" xmlns="http://www.w3.org/2000/svg" @if($wishExist == 0) style="display: none" @endif
                                          xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="20"
                                          viewBox="0 0 22 20">
                                         <defs>
@@ -104,14 +111,33 @@
                                         </defs>
                                         <g id="Repeat_Grid_1" data-name="Repeat Grid 1" clip-path="url(#clip-path)">
                                             <g transform="translate(1 1)">
-                                                <path id="Heart-2" data-name="Heart"
+                                                <path data-name="Heart"
+                                                      d="M20.007,4.59a5.148,5.148,0,0,0-7.444,0L11.548,5.636,10.534,4.59a5.149,5.149,0,0,0-7.444,0,5.555,5.555,0,0,0,0,7.681L4.1,13.317,11.548,21l7.444-7.681,1.014-1.047a5.553,5.553,0,0,0,0-7.681Z"
+                                                      transform="translate(-1.549 -2.998)" fill="red" stroke="red"
+                                                      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <svg id="{{'B'.$value->id}}" xmlns="http://www.w3.org/2000/svg" @if($wishExist == 1) style="display: none" @endif
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="20"
+                                         viewBox="0 0 22 20">
+                                        <defs>
+                                            <clipPath id="clip-path">
+                                                <rect width="22" height="20" fill="none" />
+                                            </clipPath>
+                                        </defs>
+                                        <g id="Repeat_Grid_1" data-name="Repeat Grid 1" clip-path="url(#clip-path)">
+                                            <g transform="translate(1 1)">
+                                                <path data-name="Heart"
                                                       d="M20.007,4.59a5.148,5.148,0,0,0-7.444,0L11.548,5.636,10.534,4.59a5.149,5.149,0,0,0-7.444,0,5.555,5.555,0,0,0,0,7.681L4.1,13.317,11.548,21l7.444-7.681,1.014-1.047a5.553,5.553,0,0,0,0-7.681Z"
                                                       transform="translate(-1.549 -2.998)" fill="#fff" stroke="#335aff"
                                                       stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                                             </g>
                                         </g>
                                     </svg>
+
                                 </a>
+                                @endif
                                 <div class="product-pricelist-selector-button-item">
                                     <div class="shipping">
                                         <div class="icon">
@@ -194,12 +220,19 @@
                 <div class="features-wrapper">
                     <div class="features-active">
                         @foreach($products as $product)
+                            @if($product->id != $value->id)
                             <div class="product-item">
                                 <div class="product-item-image">
                                     <a href="{{route('ProductDetails',$product->id)}}"><img src="{{asset($product->cover)}}" alt="{{$product->title}}"
                                                                              class="img-fluid"></a>
                                     <div class="cart-icon">
-                                        <a href="#"><i class="far fa-heart"></i></a>
+                                        @php($wishExist = 0)
+                                        @foreach($product->wishes as $wish)
+                                            @if($wish->user_id == auth()->user()->id)
+                                                @php($wishExist = 1)
+                                            @endif
+                                        @endforeach
+                                        @if(Auth::check())<a href="javascript:" @if($wishExist == 0) onClick="addWish(this,{{$product->id}});" rel="{{url('UserDashboard/addWish')}}/" @else onclick="removeWish(this,{{$product->id}})" rel="{{url('UserDashboard/removeWish')}}/" @endif><i id="{{'F'.$product->id}}" @if($wishExist == 1) class="fa fa-heart text-danger" @else class="far fa-heart" @endif></i></a>@endif
                                         <a href="#">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16.75" height="16.75"
                                                  viewBox="0 0 16.75 16.75">
@@ -229,6 +262,7 @@
                                     <span>{{'$'.$product->sellingPrice}}</span> <del>{{'$'.$product->originalPrice}}</del>
                                 </div>
                             </div>
+                            @endif
                         @endforeach
                     </div>
                     <div class="slider-arrows">

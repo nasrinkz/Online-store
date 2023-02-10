@@ -20,10 +20,10 @@ class checkUserLogin
     {
         if(Auth::check()){
             if (ucfirst(Auth()->user()->user_group_id)!=2){
-                return redirect('account')->withSuccess('Opps! You do not have access22!');
+                return redirect('account')->withSuccess('Opps! You do not have access!');
             }
         }else{
-            return redirect('account')->withSuccess('Opps! You do not have access2!');
+            return redirect('account')->withSuccess('Opps! You do not have access!');
         }
         return $next($request);
     }
