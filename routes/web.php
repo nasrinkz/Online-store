@@ -51,6 +51,8 @@ Route::group(['namespace'=>'UserAccount','middleware'=>'checkUserLogin','prefix'
     Route::put('/UpdatePassword', [ProfileController::class,'updatePassword'])->name('UpdatePassword');
     Route::get('/addWish/{productId}', [OrderController::class,'addWish'])->name('addWish');
     Route::get('/removeWish/{productId}', [OrderController::class,'removeWish'])->name('removeWish');
+    Route::get('/wishList', [OrderController::class,'wishList'])->name('wishList');
+    Route::get('/removeWishFromList/{productId}', [OrderController::class,'removeWishFromList'])->name('removeWishFromList');
 });
 
 Route::group(['namespace'=>'admin/pages','middleware'=>'checkAdminLogin','prefix'=>'AdminDashboard'],function () {

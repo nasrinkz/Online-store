@@ -93,13 +93,13 @@
                                 <a class="btn cart-bg " href="#">Add to cart
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
                                 </a>
+                                @if(Auth::check())
                                 @php($wishExist = 0)
                                 @foreach($value->wishes as $wish)
                                     @if($wish->user_id == auth()->user()->id)
                                         @php($wishExist = 1)
                                     @endif
                                 @endforeach
-                                @if(Auth::check())
                                 <a class="btn bg-primary cart-hart" href="javascript:" @if($wishExist == 0) onClick="addWish3(this,{{$value->id}});" rel="{{url('UserDashboard/addWish')}}/" @else onclick="removeWish3(this,{{$value->id}})" rel="{{url('UserDashboard/removeWish')}}/" @endif>
                                     <svg id="{{'A'.$value->id}}" xmlns="http://www.w3.org/2000/svg" @if($wishExist == 0) style="display: none" @endif
                                          xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="20"
@@ -226,13 +226,14 @@
                                     <a href="{{route('ProductDetails',$product->id)}}"><img src="{{asset($product->cover)}}" alt="{{$product->title}}"
                                                                              class="img-fluid"></a>
                                     <div class="cart-icon">
+                                        @if(Auth::check())
                                         @php($wishExist = 0)
                                         @foreach($product->wishes as $wish)
                                             @if($wish->user_id == auth()->user()->id)
                                                 @php($wishExist = 1)
                                             @endif
                                         @endforeach
-                                        @if(Auth::check())<a href="javascript:" @if($wishExist == 0) onClick="addWish(this,{{$product->id}});" rel="{{url('UserDashboard/addWish')}}/" @else onclick="removeWish(this,{{$product->id}})" rel="{{url('UserDashboard/removeWish')}}/" @endif><i id="{{'F'.$product->id}}" @if($wishExist == 1) class="fa fa-heart text-danger" @else class="far fa-heart" @endif></i></a>@endif
+                                        <a href="javascript:" @if($wishExist == 0) onClick="addWish(this,{{$product->id}});" rel="{{url('UserDashboard/addWish')}}/" @else onclick="removeWish(this,{{$product->id}})" rel="{{url('UserDashboard/removeWish')}}/" @endif><i id="{{'F'.$product->id}}" @if($wishExist == 1) class="fa fa-heart text-danger" @else class="far fa-heart" @endif></i></a>@endif
                                         <a href="#">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16.75" height="16.75"
                                                  viewBox="0 0 16.75 16.75">

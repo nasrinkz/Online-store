@@ -26,4 +26,16 @@ class OrderController extends Controller
         $this->order->removeWish($productId);
         return $productId;
     }
+
+    public function removeWishFromList($productId)
+    {
+        $this->order->removeWish($productId);
+        return back();
+    }
+
+    public function wishList()
+    {
+        $values = $this->order->wishList();
+        return view('pages.UserAccount.wishlist',compact('values'));
+    }
 }

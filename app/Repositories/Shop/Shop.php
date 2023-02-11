@@ -93,8 +93,14 @@ class Shop implements IShop
     }
 
     function removeWish($productId){
-        $data = Wish::where('product_id',$productId)->delete();
+        Wish::where('product_id',$productId)->delete();
         return True;
+    }
+
+    function wishList()
+    {
+        $values = Wish::where('user_id',auth()->user()->id)->orderBy('id','DESC')->paginate(8);
+        return $values;
     }
 
 }

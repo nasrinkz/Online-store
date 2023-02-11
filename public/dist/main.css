@@ -13931,3 +13931,6 @@ footer {
 .exzoom_img_box img{
     max-height: 430px !important;
 }
+.wishList .pagination{
+    padding-bottom: 0 !important;
+}
