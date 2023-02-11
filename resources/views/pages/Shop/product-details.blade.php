@@ -39,7 +39,11 @@
                             <h2>{{$value->title}}</h2>
                             <div class="product-pricelist-ratting">
                                 <div class="price">
-                                    <span>{{'$'.$value->sellingPrice}}</span> <del>{{'$'.$value->originalPrice}}</del>
+                                    @if($value->sellingPrice == $value->originalPrice)
+                                        <span>{{'$'.$value->sellingPrice}}</span>
+                                    @else
+                                        <span>{{'$'.$value->sellingPrice}}</span> <del>{{'$'.$value->originalPrice}}</del>
+                                    @endif
                                 </div>
                             </div>
                             <p>{!! $value->description !!}</p>
@@ -260,7 +264,11 @@
                                 </div>
                                 <div class="product-item-info">
                                     <a href="{{route('ProductDetails',$product->id)}}">{{$product->title}}</a>
-                                    <span>{{'$'.$product->sellingPrice}}</span> <del>{{'$'.$product->originalPrice}}</del>
+                                    @if($product->sellingPrice == $product->originalPrice)
+                                        <span>{{'$'.$product->sellingPrice}}</span>
+                                    @else
+                                        <span>{{'$'.$product->sellingPrice}}</span> <del>{{'$'.$product->originalPrice}}</del>
+                                    @endif
                                 </div>
                             </div>
                             @endif

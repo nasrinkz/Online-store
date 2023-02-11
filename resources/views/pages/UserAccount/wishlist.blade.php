@@ -21,13 +21,13 @@
                     <!-- Dashboard-Nav  Start-->
                     <div class="dashboard-nav">
                         <ul class="list-inline">
-                            <li class="list-inline-item"><a href="user-dashboard.blade.php">Account
+                            <li class="list-inline-item"><a href="{{route('UserDashboard')}}">Account
                                     settings</a></li>
-                            <li class="list-inline-item"><a href="deliver-info.blade.php">Billing information</a></li>
-                            <li class="list-inline-item"><a href="wishlist.blade.php" class="active">My wishlist</a></li>
+                            <li class="list-inline-item"><a href="deliver-info.blade.php">Deliver information</a></li>
+                            <li class="list-inline-item"><a href="{{route('wishList')}}" class="active">My wishlist</a></li>
                             <li class="list-inline-item"><a href="cart.blade.php">My cart</a></li>
                             <li class="list-inline-item"><a href="order.blade.php">Order</a></li>
-                            <li class="list-inline-item"><a href="account.html" class="mr-0">Log-out</a></li>
+                            <li class="list-inline-item"><a href="{{route('logout')}}" class="mr-0">Log-out</a></li>
                         </ul>
                     </div>
                     <!-- Dashboard-Nav  End-->
@@ -58,7 +58,7 @@
                             @if($value->product->status == 1)
                             <div class="item">
                             <div class="image">
-                                <img src="{{asset($value->product->cover)}}">
+                                <a href="{{route('ProductDetails',$value->product_id)}}"><img src="{{asset($value->product->cover)}}"></a>
                             </div>
                             <div class="info">
                                 <div class="name-text">
@@ -69,7 +69,11 @@
                                     <p>{!! \Illuminate\Support\Str::limit($value->product->shortDescription, 400), '...' !!}</p>
                                 </div>
                             <div class="price">
-                                <span>{{'$'.$value->product->sellingPrice}}</span> <del>{{'$'.$value->product->originalPrice}}</del>
+                                @if($value->product->sellingPrice == $value->product->originalPrice)
+                                    <span>{{'$'.$value->product->sellingPrice}}</span>
+                                @else
+                                    <span>{{'$'.$value->product->sellingPrice}}</span> <del>{{'$'.$value->product->originalPrice}}</del>
+                                @endif
                             </div>
                                 <div class="name">
                                     <div class="button">

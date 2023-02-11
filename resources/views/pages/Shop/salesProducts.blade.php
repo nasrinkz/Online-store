@@ -111,7 +111,11 @@
                                 </div>
                                 <div class="product-item-info">
                                     <a href="{{route('ProductDetails',$product->id)}}">{{$product->title}}</a>
-                                    <span>{{'$'.$product->sellingPrice}}</span> <del>{{'$'.$product->originalPrice}}</del>
+                                    @if($product->sellingPrice == $product->originalPrice)
+                                        <span>{{'$'.$product->sellingPrice}}</span>
+                                    @else
+                                        <span>{{'$'.$product->sellingPrice}}</span> <del>{{'$'.$product->originalPrice}}</del>
+                                    @endif
                                 </div>
                             </div>
                         </div>

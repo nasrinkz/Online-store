@@ -87,7 +87,11 @@
                                 </div>
                                 <div class="product-item-info">
                                     <a href="{{route('ProductDetails',$product->id)}}">{{$product->title}}</a>
-                                    <span>{{'$'.$product->sellingPrice}}</span> <del>{{'$'.$product->originalPrice}}</del>
+                                    @if($product->sellingPrice == $product->originalPrice)
+                                        <span>{{'$'.$product->sellingPrice}}</span>
+                                    @else
+                                        <span>{{'$'.$product->sellingPrice}}</span> <del>{{'$'.$product->originalPrice}}</del>
+                                    @endif
                                 </div>
                             </div>
                             @endforeach
@@ -219,7 +223,11 @@
                                 </div>
                                 <div class="product-item-info">
                                     <a href="{{route('ProductDetails',$topSale->id)}}">{{$topSale->title}}</a>
-                                    <span>{{'$'.$topSale->sellingPrice}}</span> <del>{{'$'.$topSale->originalPrice}}</del>
+                                    @if($topSale->sellingPrice == $topSale->originalPrice)
+                                        <span>{{'$'.$topSale->sellingPrice}}</span>
+                                    @else
+                                        <span>{{'$'.$topSale->sellingPrice}}</span> <del>{{'$'.$topSale->originalPrice}}</del>
+                                    @endif
                                 </div>
                             </div>
                         </div>

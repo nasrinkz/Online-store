@@ -22,10 +22,10 @@
                         <!-- Dashboard-Nav  Start-->
                         <div class="dashboard-nav">
                             <ul class="list-inline">
-                                <li class="list-inline-item"><a href="user-dashboard.blade.php" class="active">Account
+                                <li class="list-inline-item"><a href="{{route('UserDashboard')}}" class="active">Account
                                         settings</a></li>
                                 <li class="list-inline-item"><a href="deliver-info.blade.php">Deliver information</a></li>
-                                <li class="list-inline-item"><a href="wishlist.blade.php">My wishlist</a></li>
+                                <li class="list-inline-item"><a href="{{route('wishList')}}">My wishlist</a></li>
                                 <li class="list-inline-item"><a href="cart.blade.php">My cart</a></li>
                                 <li class="list-inline-item"><a href="order.blade.php">Order</a></li>
                                 <li class="list-inline-item"><a href="{{route('logout')}}" class="mr-0">Log-out</a></li>
