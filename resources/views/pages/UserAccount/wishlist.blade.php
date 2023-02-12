@@ -77,32 +77,6 @@
                             </div>
                                 <div class="name">
                                     <div class="button">
-                                        <div class="product-pricelist-selector-button">
-                                            <a class="btn cart-bg " href="#">Add to cart
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17"
-                                                     viewBox="0 0 17 17">
-                                                    <g id="Your_Bag" data-name="Your Bag" transform="translate(1)">
-                                                        <g id="Icon" transform="translate(0 1)">
-                                                            <ellipse id="Ellipse_2" data-name="Ellipse 2" cx="0.682"
-                                                                     cy="0.714" rx="0.682" ry="0.714"
-                                                                     transform="translate(4.773 13.571)" fill="none"
-                                                                     stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
-                                                                     stroke-width="2" />
-                                                            <ellipse id="Ellipse_3" data-name="Ellipse 3" cx="0.682"
-                                                                     cy="0.714" rx="0.682" ry="0.714"
-                                                                     transform="translate(12.273 13.571)" fill="none"
-                                                                     stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
-                                                                     stroke-width="2" />
-                                                            <path id="Path_3" data-name="Path 3"
-                                                                  d="M1,1H3.727l1.827,9.564a1.38,1.38,0,0,0,1.364,1.15h6.627a1.38,1.38,0,0,0,1.364-1.15L16,4.571H4.409"
-                                                                  transform="translate(-1 -1)" fill="none" stroke="#fff"
-                                                                  stroke-linecap="round" stroke-linejoin="round"
-                                                                  stroke-width="2" />
-                                                        </g>
-                                                    </g>
-                                                </svg>
-                                            </a>
-                                        </div>
                                         <a class="del text-danger" href="{{route('removeWishFromList',$value->product_id)}}">Remove</a>
                                     </div>
                                 </div>

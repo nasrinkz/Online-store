@@ -147,7 +147,15 @@
                                                     stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                                             </g>
                                         </svg>
-{{--                                        <span class="cart"></span>--}}
+                                        <?php use App\Models\Cart;
+                                        if(Auth::check()){
+                                            $cartNumber = Cart::where('user_id',auth()->user()->id)->orderBy('id','DESC')->count();
+                                        }else{
+                                            $cartNumber = Cart::where('user_id',null)->where('userIP',Request::ip())->orderBy('id','DESC')->count();
+                                        }
+                                        ?>
+                                        <input type="hidden" name="cartNumber" value="{{$cartNumber}}">
+                                        <span class="cart" id="cartNumber">{{$cartNumber}}</span>
                                     </a>
                                 </li>
                                 <li>

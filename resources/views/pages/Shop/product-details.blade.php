@@ -53,7 +53,7 @@
                                     <div class="sizes" id="sizes">
                                         @foreach($value->sizesTable as $s)
                                             @if($s->number>0)
-                                                <li class="sizes-all" title="{{$s->size->title}}">{{$s->size->symbol}}</li>
+                                                <li class="sizes-all" id="size" value="{{$s->size->id}}" title="{{$s->size->title}}">{{$s->size->symbol}}</li>
                                             @endif
                                         @endforeach
                                     </div>
@@ -63,7 +63,7 @@
                                     <div class="colors" id="colors">
                                         @foreach($value->colorsTable as $c)
                                             @if($c->number>0)
-                                                <li class="colorall" style="background-color: {{$c->color->code}}" title="{{$c->color->title}}"></li>
+                                                <li class="colorall" id="color" value="{{$c->color->id}}" style="background-color: {{$c->color->code}}" title="{{$c->color->title}}"></li>
                                             @endif
                                         @endforeach
                                     </div>
@@ -79,7 +79,9 @@
                                                       stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" />
                                             </svg>
                                         </a>
-                                        <input type="text" value="1" min="1">
+                                        <input type="number" value="1" name="number" min="1">
+                                        <input type="hidden" value="{{$value->id}}" name="product_id">
+                                        <input type="hidden" value="{{Request::ip()}}" name="userIP">
                                         <a href="javascript:void(0)" class="plus"><svg
                                                 xmlns="http://www.w3.org/2000/svg" width="11.98" height="6.69"
                                                 viewBox="0 0 11.98 6.69">
@@ -94,9 +96,9 @@
                                 </div>
                             </div>
                             <div class="product-pricelist-selector-button">
-                                <a class="btn cart-bg " href="#">Add to cart
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-                                </a>
+                                    <button id="addCart" class="btn cart-bg " >Add to cart
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                                    </button>
                                 @if(Auth::check())
                                 @php($wishExist = 0)
                                 @foreach($value->wishes as $wish)
@@ -139,9 +141,12 @@
                                             </g>
                                         </g>
                                     </svg>
-
                                 </a>
                                 @endif
+                                <div class="col-lg-12">
+                                    <div class="text-danger" id="error-msg">
+                                    </div>
+                                </div>
                                 <div class="product-pricelist-selector-button-item">
                                     <div class="shipping">
                                         <div class="icon">
@@ -298,4 +303,5 @@
         </section>
         <!-- Features Section End -->
     </main>
+
 @endsection

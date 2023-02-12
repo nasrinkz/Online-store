@@ -61,28 +61,6 @@
                                             @endif
                                         @endforeach
                                             <a href="javascript:" @if($wishExist == 0) onClick="addWish(this,{{$product->id}});" rel="{{url('UserDashboard/addWish')}}/" @else onclick="removeWish(this,{{$product->id}})" rel="{{url('UserDashboard/removeWish')}}/" @endif><i id="{{'F'.$product->id}}" @if($wishExist == 1) class="fa fa-heart text-danger" @else class="far fa-heart" @endif></i></a>@endif
-                                        <a href="#">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16.75" height="16.75"
-                                                 viewBox="0 0 16.75 16.75">
-                                                <g id="Your_Bag" data-name="Your Bag" transform="translate(0.75)">
-                                                    <g id="Icon" transform="translate(0 1)">
-                                                        <ellipse id="Ellipse_2" data-name="Ellipse 2" cx="0.682" cy="0.714"
-                                                                 rx="0.682" ry="0.714" transform="translate(4.773 13.571)"
-                                                                 fill="none" stroke="#1a2224" stroke-linecap="round"
-                                                                 stroke-linejoin="round" stroke-width="1.5" />
-                                                        <ellipse id="Ellipse_3" data-name="Ellipse 3" cx="0.682" cy="0.714"
-                                                                 rx="0.682" ry="0.714" transform="translate(12.273 13.571)"
-                                                                 fill="none" stroke="#1a2224" stroke-linecap="round"
-                                                                 stroke-linejoin="round" stroke-width="1.5" />
-                                                        <path id="Path_3" data-name="Path 3"
-                                                              d="M1,1H3.727l1.827,9.564a1.38,1.38,0,0,0,1.364,1.15h6.627a1.38,1.38,0,0,0,1.364-1.15L16,4.571H4.409"
-                                                              transform="translate(-1 -1)" fill="none" stroke="#1a2224"
-                                                              stroke-linecap="round" stroke-linejoin="round"
-                                                              stroke-width="1.5" />
-                                                    </g>
-                                                </g>
-                                            </svg>
-                                        </a>
                                     </div>
                                 </div>
                                 <div class="product-item-info">
@@ -197,28 +175,6 @@
                                             @endif
                                         @endforeach
                                         <a href="javascript:" @if($wishExist == 0) onClick="addWish2(this,{{$topSale->id}});" rel="{{url('UserDashboard/addWish')}}/" @else onclick="removeWish2(this,{{$topSale->id}})" rel="{{url('UserDashboard/removeWish')}}/" @endif><i id="{{'T'.$topSale->id}}" @if($wishExist == 1) class="fa fa-heart text-danger" @else class="far fa-heart" @endif></i></a>@endif
-                                        <a href="#">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16.75" height="16.75"
-                                                 viewBox="0 0 16.75 16.75">
-                                                <g id="Your_Bag" data-name="Your Bag" transform="translate(0.75)">
-                                                    <g id="Icon" transform="translate(0 1)">
-                                                        <ellipse id="Ellipse_2" data-name="Ellipse 2" cx="0.682" cy="0.714"
-                                                                 rx="0.682" ry="0.714" transform="translate(4.773 13.571)"
-                                                                 fill="none" stroke="#1a2224" stroke-linecap="round"
-                                                                 stroke-linejoin="round" stroke-width="1.5" />
-                                                        <ellipse id="Ellipse_3" data-name="Ellipse 3" cx="0.682" cy="0.714"
-                                                                 rx="0.682" ry="0.714" transform="translate(12.273 13.571)"
-                                                                 fill="none" stroke="#1a2224" stroke-linecap="round"
-                                                                 stroke-linejoin="round" stroke-width="1.5" />
-                                                        <path id="Path_3" data-name="Path 3"
-                                                              d="M1,1H3.727l1.827,9.564a1.38,1.38,0,0,0,1.364,1.15h6.627a1.38,1.38,0,0,0,1.364-1.15L16,4.571H4.409"
-                                                              transform="translate(-1 -1)" fill="none" stroke="#1a2224"
-                                                              stroke-linecap="round" stroke-linejoin="round"
-                                                              stroke-width="1.5" />
-                                                    </g>
-                                                </g>
-                                            </svg>
-                                        </a>
                                     </div>
                                 </div>
                                 <div class="product-item-info">
@@ -233,6 +189,7 @@
                         </div>
                         @endforeach
                     </div>
+                    {{\Request::getClientIp(true)}}
                 </div>
             </section>
             <!-- Populer Product End -->

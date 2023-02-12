@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('userIP')->nullable();
             $table->foreignId('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade')->nullable();
             $table->integer('number')->nullable();
             $table->foreignId('color_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('size_id')->constrained()->onUpdate('cascade')->onDelete('cascade');

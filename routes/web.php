@@ -44,6 +44,7 @@ Route::get('/account', [AuthenticationController::class,'index'])->name('account
 Route::post('/UserAccount', [AuthenticationController::class,'store'])->name('UserAccount');
 Route::post('/login', [AuthenticationController::class,'login'])->name('login');
 Route::get('/logout', [AuthenticationController::class,'logout'])->name('logout');
+Route::post('/addCart', [OrderController::class,'addCart'])->name('addCart');
 
 Route::group(['namespace'=>'UserAccount','middleware'=>'checkUserLogin','prefix'=>'UserDashboard'],function () {
     Route::get('', [ProfileController::class,'show'])->name('UserDashboard');
