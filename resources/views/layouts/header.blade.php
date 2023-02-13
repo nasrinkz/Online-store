@@ -129,7 +129,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="cart.html">
+                                    <a href="{{route('cartList')}}">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
                                             viewBox="0 0 22 22">
                                             <g id="Icon" transform="translate(-1524 -89)">
@@ -149,9 +149,9 @@
                                         </svg>
                                         <?php use App\Models\Cart;
                                         if(Auth::check()){
-                                            $cartNumber = Cart::where('user_id',auth()->user()->id)->orderBy('id','DESC')->count();
+                                            $cartNumber = Cart::where('user_id',auth()->user()->id)->count();
                                         }else{
-                                            $cartNumber = Cart::where('user_id',null)->where('userIP',Request::ip())->orderBy('id','DESC')->count();
+                                            $cartNumber = Cart::where('user_id',null)->where('userIP',Request::ip())->count();
                                         }
                                         ?>
                                         <input type="hidden" name="cartNumber" value="{{$cartNumber}}">
@@ -258,7 +258,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="cart.html">
+                                    <a href="{{route('cartList')}}">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
                                             viewBox="0 0 22 22">
                                             <g id="Icon" transform="translate(-1524 -89)">

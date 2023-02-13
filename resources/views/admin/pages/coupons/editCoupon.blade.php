@@ -64,6 +64,17 @@
                                     @if($errors->has('code'))
                                         <span class="error-text text-danger">{{$errors->first('code')}}</span>
                                     @endif
+                                    <div class="form-group mb-0 mt-4">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Discount</span>
+                                            </div>
+                                            <input type="text" class="form-control" id="discount" required value="{{$value->discount}}" name="discount" placeholder="Example: 10%">
+                                        </div>
+                                        @if($errors->has('discount'))
+                                            <span class="error-text text-danger">{{$errors->first('discount')}}</span>
+                                        @endif
+                                    </div>
                                     <div class="input-group mb-0 mt-4">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">Start date</span>

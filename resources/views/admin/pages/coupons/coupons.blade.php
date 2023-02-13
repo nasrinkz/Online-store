@@ -99,6 +99,18 @@
                                                         @endif
                                                     </div>
                                                     <div class="form-group mb-0 mt-4">
+                                                        <label>Coupon discount</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">D</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="discount" required name="discount" placeholder="Example: 10%">
+                                                        </div>
+                                                        @if($errors->has('discount'))
+                                                            <span class="error-text text-danger">{{$errors->first('discount')}}</span>
+                                                        @endif
+                                                    </div>
+                                                    <div class="form-group mb-0 mt-4">
                                                         <label>Start date</label>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">

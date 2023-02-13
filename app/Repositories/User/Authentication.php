@@ -3,6 +3,7 @@
 namespace App\Repositories\User;
 
 use App\Models\Brand;
+use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
@@ -34,6 +35,9 @@ class Authentication implements IUsers
         $user->password = Hash::make($data['password']);
         $user->save();
         Auth::login($user);
+        Cart::where(['userIP'=>\Request::getClientIp(true),'user_id'=>null])->update([
+            'user_id' => Auth::user()->id
+        ]);
         return $user;
     }
 
@@ -49,6 +53,9 @@ class Authentication implements IUsers
         ]);
 //        $credentials = $req->only('username', 'password');
         if (Auth::attempt(['email' => $request->loginEmail, 'password' => $request->loginPassword],$request->remember)) {
+            Cart::where(['userIP'=>\Request::getClientIp(true),'user_id'=>null])->update([
+                'user_id' => Auth::user()->id
+            ]);
             if (Auth::user()->user_group_id==1){
                 $status=1;
             }else{

@@ -5,7 +5,7 @@
 @section('breadcrumbAppend')
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">Cart</li>
         </ol>
     </nav>
@@ -21,13 +21,13 @@
                     <!-- Dashboard-Nav  Start-->
                     <div class="dashboard-nav">
                         <ul class="list-inline">
-                            <li class="list-inline-item"><a href="user-dashboard.blade.php">Account
+                            <li class="list-inline-item"><a href="{{route('UserDashboard')}}">Account
                                     settings</a></li>
                             <li class="list-inline-item"><a href="deliver-info.blade.php">Deliver information</a></li>
-                            <li class="list-inline-item"><a href="wishlist.blade.php">My wishlist</a></li>
-                            <li class="list-inline-item"><a href="cart.blade.php" class="active">My cart</a></li>
+                            <li class="list-inline-item"><a href="{{route('wishList')}}">My wishlist</a></li>
+                            <li class="list-inline-item"><a href="{{route('cartList')}}" class="active">My cart</a></li>
                             <li class="list-inline-item"><a href="order.blade.php">Order</a></li>
-                            <li class="list-inline-item"><a href="account.html" class="mr-0">Log-out</a></li>
+                            <li class="list-inline-item"><a href="{{route('logout')}}" class="mr-0">Log-out</a></li>
                         </ul>
                     </div>
                     <!-- Dashboard-Nav  End-->
@@ -39,242 +39,113 @@
                         <div class="image">
                             Image
                         </div>
-                        <div class="name">
+                        <div class="info">
                             Name
                         </div>
                         <div class="price">
                             Prices
                         </div>
-                        <div class="rating">
-                            Rating
+                        <div class="price">
+                            Size
+                        </div>
+                        <div class="price">
+                            Color
                         </div>
                         <div class="info">
-                            Info
+                            Operation
                         </div>
                     </div>
                     <div class="body">
+                        @foreach($values as $value)
                         <div class="item">
                             <div class="image">
-                                <img src="dist/images/nike-shoe.jpg">
+                                <a href="{{route('ProductDetails',$value->product_id)}}"><img src="{{asset($value->product->cover)}}"></a>
                             </div>
-                            <div class="name">
+                            <div class="info">
                                 <div class="name-text">
-                                    <p> Skechers Men's Classic Fit-Delson-Camden Sneaker</p>
+                                    <p> {{$value->product->title}}</p>
                                 </div>
                                 <div class="button">
-                                    <a class="btn bg-primary" href="billing-information.blade.php">Checkout now</a>
-                                    <a class="cart-btn" href="#">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18"
-                                             viewBox="0 0 20 18">
-                                            <g id="Heart" transform="translate(1 1)">
-                                                <path id="Heart-2" data-name="Heart"
-                                                      d="M18.161,4.413a4.674,4.674,0,0,0-6.7,0l-.913.93-.913-.93a4.675,4.675,0,0,0-6.7,0,4.893,4.893,0,0,0,0,6.828l.913.93L10.548,19l6.7-6.828.913-.93a4.892,4.892,0,0,0,0-6.828Z"
-                                                      transform="translate(-1.549 -2.998)" fill="#fff" stroke="#1a2224"
-                                                      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                            </g>
-                                        </svg>
-                                    </a>
-                                    <a class="del" href="#">Delete</a>
+                                    <div class="quantity">
+                                        <div class="product-pricelist-selector-quantity">
+                                            <h6>quantity</h6>
+                                            <div class="wan-spinner wan-spinner-4">
+                                                <a href="javascript:void(0)" class="minus">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="11.98" height="6.69"
+                                                         viewBox="0 0 11.98 6.69">
+                                                        <path id="Arrow" d="M1474.286,26.4l5,5,5-5"
+                                                              transform="translate(-1473.296 -25.41)" fill="none"
+                                                              stroke="#989ba7" stroke-linecap="round" stroke-linejoin="round"
+                                                              stroke-width="1.4" />
+                                                    </svg>
+                                                </a>
+                                                @if($value->product->status==0)
+                                                    <input type="hidden" value="disable">
+                                                    <input type="number" value="0" max="0" min="0">
+                                                @else
+                                                    <input type="hidden" value="enable">
+                                                    <input type="number" value="{{$value->number}}" min="1">
+                                                @endif
+                                                <a href="javascript:void(0)" class="plus"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="11.98" height="6.69"
+                                                        viewBox="0 0 11.98 6.69">
+                                                        <g id="Arrow" transform="translate(10.99 5.7) rotate(180)">
+                                                            <path id="Arrow-2" data-name="Arrow" d="M1474.286,26.4l5,5,5-5"
+                                                                  transform="translate(-1474.286 -26.4)" fill="none"
+                                                                  stroke="#1a2224" stroke-linecap="round"
+                                                                  stroke-linejoin="round" stroke-width="1.4" />
+                                                        </g>
+                                                    </svg></a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="price">
-                                <span>$254.99</span> <del>$499.99</del>
+                                @if($value->product->sellingPrice == $value->product->originalPrice)
+                                    <span>{{'$'.$value->product->sellingPrice}}</span>
+                                @else
+                                    <span>{{'$'.$value->product->sellingPrice}}</span> <del>{{'$'.$value->product->originalPrice}}</del>
+                                @endif
                             </div>
-                            <div class="rating">
-                                <i class="fas fa-star"></i> 5.0
-                            </div>
-                            <div class="info">
+                            <div class="price">
                                 <div class="size">
                                     <div class="product-pricelist-selector-size">
-                                        <h6>Sizes</h6>
                                         <div class="sizes" id="sizes">
-                                            <li class="sizes-all active">M</li>
+                                            @foreach($value->product->sizesTable as $s)
+                                                @if($s->number>0)
+                                                    <li class="sizes-all @if($s->size->id==$value->size_id) active @endif" id="size" value="{{$s->size->id}}" title="{{$s->size->title}}">{{$s->size->symbol}}</li>
+                                                @endif
+                                            @endforeach
                                         </div>
                                     </div>
-                                    <div class="product-pricelist-selector-color">
-                                        <h6>Colors</h6>
-                                        <div class="colors" id="colors">
-                                            <li class="colorall color-1 active"></li>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="quantity">
-                                    <div class="product-pricelist-selector-quantity">
-                                        <h6>quantity</h6>
-                                        <div class="wan-spinner wan-spinner-4">
-                                            <a href="javascript:void(0)" class="minus">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="11.98" height="6.69"
-                                                     viewBox="0 0 11.98 6.69">
-                                                    <path id="Arrow" d="M1474.286,26.4l5,5,5-5"
-                                                          transform="translate(-1473.296 -25.41)" fill="none"
-                                                          stroke="#989ba7" stroke-linecap="round" stroke-linejoin="round"
-                                                          stroke-width="1.4" />
-                                                </svg>
-                                            </a>
-                                            <input type="text" value="1" min="1">
-                                            <a href="javascript:void(0)" class="plus"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="11.98" height="6.69"
-                                                    viewBox="0 0 11.98 6.69">
-                                                    <g id="Arrow" transform="translate(10.99 5.7) rotate(180)">
-                                                        <path id="Arrow-2" data-name="Arrow" d="M1474.286,26.4l5,5,5-5"
-                                                              transform="translate(-1474.286 -26.4)" fill="none"
-                                                              stroke="#1a2224" stroke-linecap="round"
-                                                              stroke-linejoin="round" stroke-width="1.4" />
-                                                    </g>
-                                                </svg></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="image">
-                                <img src="dist/images/nike-shoe.jpg">
-                            </div>
-                            <div class="name">
-                                <div class="name-text">
-                                    <p> Skechers Men's Classic Fit-Delson-Camden Sneaker</p>
-                                </div>
-                                <div class="button">
-                                    <a class="btn bg-primary" href="billing-information.blade.php">Checkout now</a>
-                                    <a class="cart-btn" href="#">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18"
-                                             viewBox="0 0 20 18">
-                                            <g id="Heart" transform="translate(1 1)">
-                                                <path id="Heart-2" data-name="Heart"
-                                                      d="M18.161,4.413a4.674,4.674,0,0,0-6.7,0l-.913.93-.913-.93a4.675,4.675,0,0,0-6.7,0,4.893,4.893,0,0,0,0,6.828l.913.93L10.548,19l6.7-6.828.913-.93a4.892,4.892,0,0,0,0-6.828Z"
-                                                      transform="translate(-1.549 -2.998)" fill="#fff" stroke="#1a2224"
-                                                      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                            </g>
-                                        </svg>
-                                    </a>
-                                    <a class="del" href="#">Delete</a>
                                 </div>
                             </div>
                             <div class="price">
-                                <span>$254.99</span> <del>$499.99</del>
-                            </div>
-                            <div class="rating">
-                                <i class="fas fa-star"></i> 5.0
+                                <div class="size">
+                                    <div class="product-pricelist-selector-color">
+                                        <div class="colors" id="colors">
+                                            @foreach($value->product->colorsTable as $c)
+                                                @if($c->number>0)
+                                                    <li class="colorall @if($c->color->id==$value->color_id) active @endif" id="color" value="{{$c->color->id}}" style="background-color: {{$c->color->code}}" title="{{$c->color->title}}"></li>
+                                                @endif
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="info">
-                                <div class="size">
-                                    <div class="product-pricelist-selector-size">
-                                        <h6>Sizes</h6>
-                                        <div class="sizes" id="sizes">
-                                            <li class="sizes-all active">M</li>
-                                        </div>
-                                    </div>
-                                    <div class="product-pricelist-selector-color">
-                                        <h6>Colors</h6>
-                                        <div class="colors" id="colors">
-                                            <li class="colorall color-1 active"></li>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="quantity">
-                                    <div class="product-pricelist-selector-quantity">
-                                        <h6>quantity</h6>
-                                        <div class="wan-spinner wan-spinner-4">
-                                            <a href="javascript:void(0)" class="minus">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="11.98" height="6.69"
-                                                     viewBox="0 0 11.98 6.69">
-                                                    <path id="Arrow" d="M1474.286,26.4l5,5,5-5"
-                                                          transform="translate(-1473.296 -25.41)" fill="none"
-                                                          stroke="#989ba7" stroke-linecap="round" stroke-linejoin="round"
-                                                          stroke-width="1.4" />
-                                                </svg>
-                                            </a>
-                                            <input type="text" value="1" min="1">
-                                            <a href="javascript:void(0)" class="plus"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="11.98" height="6.69"
-                                                    viewBox="0 0 11.98 6.69">
-                                                    <g id="Arrow" transform="translate(10.99 5.7) rotate(180)">
-                                                        <path id="Arrow-2" data-name="Arrow" d="M1474.286,26.4l5,5,5-5"
-                                                              transform="translate(-1474.286 -26.4)" fill="none"
-                                                              stroke="#1a2224" stroke-linecap="round"
-                                                              stroke-linejoin="round" stroke-width="1.4" />
-                                                    </g>
-                                                </svg></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="image">
-                                <img src="dist/images/nike-shoe.jpg">
-                            </div>
-                            <div class="name">
-                                <div class="name-text">
-                                    <p> Skechers Men's Classic Fit-Delson-Camden Sneaker</p>
-                                </div>
                                 <div class="button">
-                                    <a class="btn bg-primary" href="billing-information.blade.php">Checkout now</a>
-                                    <a class="cart-btn" href="#">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18"
-                                             viewBox="0 0 20 18">
-                                            <g id="Heart" transform="translate(1 1)">
-                                                <path id="Heart-2" data-name="Heart"
-                                                      d="M18.161,4.413a4.674,4.674,0,0,0-6.7,0l-.913.93-.913-.93a4.675,4.675,0,0,0-6.7,0,4.893,4.893,0,0,0,0,6.828l.913.93L10.548,19l6.7-6.828.913-.93a4.892,4.892,0,0,0,0-6.828Z"
-                                                      transform="translate(-1.549 -2.998)" fill="#fff" stroke="#1a2224"
-                                                      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                            </g>
-                                        </svg>
-                                    </a>
-                                    <a class="del" href="#">Delete</a>
+                                    <a class="del text-danger" href="{{route('removeFromCart',$value->id)}}">Delete</a>
                                 </div>
-                            </div>
-                            <div class="price">
-                                <span>$254.99</span> <del>$499.99</del>
-                            </div>
-                            <div class="rating">
-                                <i class="fas fa-star"></i> 5.0
-                            </div>
-                            <div class="info">
-                                <div class="size">
-                                    <div class="product-pricelist-selector-size">
-                                        <h6>Sizes</h6>
-                                        <div class="sizes" id="sizes">
-                                            <li class="sizes-all active">M</li>
-                                        </div>
-                                    </div>
-                                    <div class="product-pricelist-selector-color">
-                                        <h6>Colors</h6>
-                                        <div class="colors" id="colors">
-                                            <li class="colorall color-1 active"></li>
-                                        </div>
-                                    </div>
+                                @if($value->product->status==0)
+                                <div class="button">
+                                    <span class="del text-danger">!! Unavailable !!</span>
                                 </div>
-                                <div class="quantity">
-                                    <div class="product-pricelist-selector-quantity">
-                                        <h6>quantity</h6>
-                                        <div class="wan-spinner wan-spinner-4">
-                                            <a href="javascript:void(0)" class="minus">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="11.98" height="6.69"
-                                                     viewBox="0 0 11.98 6.69">
-                                                    <path id="Arrow" d="M1474.286,26.4l5,5,5-5"
-                                                          transform="translate(-1473.296 -25.41)" fill="none"
-                                                          stroke="#989ba7" stroke-linecap="round" stroke-linejoin="round"
-                                                          stroke-width="1.4" />
-                                                </svg>
-                                            </a>
-                                            <input type="text" value="1" min="1">
-                                            <a href="javascript:void(0)" class="plus"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="11.98" height="6.69"
-                                                    viewBox="0 0 11.98 6.69">
-                                                    <g id="Arrow" transform="translate(10.99 5.7) rotate(180)">
-                                                        <path id="Arrow-2" data-name="Arrow" d="M1474.286,26.4l5,5,5-5"
-                                                              transform="translate(-1474.286 -26.4)" fill="none"
-                                                              stroke="#1a2224" stroke-linecap="round"
-                                                              stroke-linejoin="round" stroke-width="1.4" />
-                                                    </g>
-                                                </svg></a>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endif
                             </div>
                         </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -284,10 +155,14 @@
                         <h6>Apply Coupon</h6>
                         <form action="#">
                             <div class="form__div">
-                                <input type="text" class="form__input" placeholder=" ">
+                                <input type="text" name="coupon" class="form__input" placeholder=" ">
                                 <label for="" class="form__label">Coupon Code</label>
                             </div>
-                            <button class="btn bg-primary" type="submit">apply COUPON</button>
+                            <button class="btn bg-primary" type="submit" id="checkCoupon">apply COUPON</button>
+                            <div class="col-lg-12">
+                                <div class="text-danger" id="error-msg">
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -296,10 +171,16 @@
                         <h6>Check Summery</h6>
                         <div class="card-price-list d-flex justify-content-between align-items-center">
                             <div class="item">
-                                <p>3 item</p>
+                                @php($count = 0)
+                                @foreach($values as $value)
+                                    @if($value->product->status==1)
+                                        @php($count++)
+                                    @endif
+                                @endforeach
+                                <p>{{$count}} item</p>
                             </div>
                             <div class="price">
-                                <p>$125</p>
+                                <p>$0</p>
                             </div>
                         </div>
                         <div class="card-price-list d-flex justify-content-between align-items-center">
@@ -307,7 +188,7 @@
                                 <p>Shipping Cast</p>
                             </div>
                             <div class="price">
-                                <p>$55</p>
+                                <p>$0</p>
                             </div>
                         </div>
                         <div class="card-price-list d-flex justify-content-between align-items-center">
@@ -315,15 +196,15 @@
                                 <p>Discount</p>
                             </div>
                             <div class="price">
-                                <p>8%</p>
+                                <p>$0</p>
                             </div>
                         </div>
                         <div class="card-price-list d-flex justify-content-between align-items-center">
                             <div class="item">
-                                <p>Taxes</p>
+                                <p>Coupon</p>
                             </div>
                             <div class="price">
-                                <p>$5.49</p>
+                                <p id="couponDiscount">0</p>
                             </div>
                         </div>
                         <div class="card-price-subtotal d-flex justify-content-between align-items-center">
@@ -331,7 +212,7 @@
                                 <p>Total Price</p>
                             </div>
                             <div class="total-price">
-                                <p>$174.99</p>
+                                <p>$0</p>
                             </div>
 
                         </div>

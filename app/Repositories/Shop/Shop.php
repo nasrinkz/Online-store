@@ -3,9 +3,12 @@
 namespace App\Repositories\Shop;
 
 use App\Models\Brand;
+use App\Models\Cart;
 use App\Models\Category;
+use App\Models\Coupon;
 use App\Models\Product;
 use App\Models\Wish;
+use Illuminate\Support\Facades\Auth;
 
 class Shop implements IShop
 {
@@ -101,6 +104,55 @@ class Shop implements IShop
     {
         $values = Wish::where('user_id',auth()->user()->id)->orderBy('id','DESC')->paginate(8);
         return $values;
+    }
+
+    function addCart($request){
+        $request->validate([
+            'size_id' => 'required',
+            'color_id' => 'required',
+            'number' => 'required',
+        ]);
+        $data = $request->all();
+
+        $row = new Cart();
+        $row->size_id = $data['size_id'];
+        $row->color_id = $data['color_id'];
+        $row->number = $data['number'];
+        $row->product_id = $data['product_id'];
+        $row->userIP = $data['userIP'];
+        if (Auth::check()){
+            $row->user_id = auth()->user()->id;
+        }
+        $row->save();
+        return True;
+    }
+
+    function cartList(){
+        if(Auth::check()){
+            $values = Cart::where('user_id',auth()->user()->id)->orderBy('id','DESC')->get();
+        }else{
+            $values = Cart::where(['user_id'=>null,'userIP'=>\Request::getClientIp(true)])->orderBy('id','DESC')->get();
+        }
+        return $values;
+    }
+
+    function removeFromCart($id){
+        Cart::findOrFail($id)->delete();
+        return True;
+    }
+
+    function checkCoupon($request){
+        $request->validate([
+            'coupon' => 'required',
+        ]);
+        $data = $request->all();
+
+        $value = Coupon::where('status','1')->where('startDate' ,'<', date('Y-m-d H:i:s'))->where('expireDate','>',date('Y-m-d H:i:s'))->where('code',$data['coupon'])->first();
+        if ($value){
+            return [1,$value->discount];
+        }else{
+            return [2,0];
+        }
     }
 
 }

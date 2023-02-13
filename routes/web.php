@@ -45,6 +45,9 @@ Route::post('/UserAccount', [AuthenticationController::class,'store'])->name('Us
 Route::post('/login', [AuthenticationController::class,'login'])->name('login');
 Route::get('/logout', [AuthenticationController::class,'logout'])->name('logout');
 Route::post('/addCart', [OrderController::class,'addCart'])->name('addCart');
+Route::get('/cartList', [OrderController::class,'cartList'])->name('cartList');
+Route::get('/removeFromCart/{id}', [OrderController::class,'removeFromCart'])->name('removeFromCart');
+Route::post('/checkCoupon', [OrderController::class,'checkCoupon'])->name('checkCoupon');
 
 Route::group(['namespace'=>'UserAccount','middleware'=>'checkUserLogin','prefix'=>'UserDashboard'],function () {
     Route::get('', [ProfileController::class,'show'])->name('UserDashboard');

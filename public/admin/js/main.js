@@ -191,10 +191,12 @@ function coupon_validation(){
     }else if(code=="") {
         form_alert.textContent = 'The code field is required.';
         event.preventDefault();
-    }else if (date1 < currentDateTime) {
-        form_alert.textContent = 'Start date can`t be before today' ;
-        event.preventDefault();
-    }else if (expireDate != "" && date2 < date1 ) {
+    }
+    // else if (date1 < currentDateTime) {
+    //     form_alert.textContent = 'Start date can`t be before today' ;
+    //     event.preventDefault();
+    // }
+    else if (expireDate != "" && date2 < date1 ) {
         form_alert.textContent = 'Expire date must be after start date';
         event.preventDefault();
     }

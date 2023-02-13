@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->string('code')->nullable();
+            $table->string('discount')->nullable();
             $table->enum('status',[0,1])->default(1);
             $table->dateTime('startDate')->nullable();
             $table->dateTime('expireDate')->nullable();

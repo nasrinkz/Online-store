@@ -29,4 +29,8 @@ class Product extends Model
     {
         return $this->hasMany(Wish::class,'product_id');
     }
+    public function carts()
+    {
+        return $this->hasMany(Cart::class,'product_id');
+    }
 }

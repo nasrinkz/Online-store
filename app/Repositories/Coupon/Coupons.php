@@ -40,6 +40,7 @@ class Coupons implements ICoupons
             'code' => 'required|unique:coupons',
             'title' => 'required',
             'status' => 'required',
+            'discount' => 'required',
         ]);
         $data = $request->all();
         $this->create($data);
@@ -57,6 +58,7 @@ class Coupons implements ICoupons
         $row->title = $data['title'];
         $row->code = $data['code'];
         $row->status = $data['status'];
+        $row->discount = $data['discount'];
         $row->startDate = $startDate;
         $row->expireDate = $data['expireDate'];
         $row->save();
@@ -89,6 +91,7 @@ class Coupons implements ICoupons
             'code' => 'required|unique:coupons,code,'.$id,
             'title' => 'required',
             'status' => 'required',
+            'discount' => 'required',
         ]);
         $request->all();
         if ($request->startDate){
@@ -99,6 +102,7 @@ class Coupons implements ICoupons
         $data = Coupon::findOrFail($id);
         $data->title = $request->title;
         $data->code = $request->code;
+        $data->discount = $request->discount;
         $data->startDate = $startDate;
         $data->expireDate = $request->expireDate;
         $data->status = $request->status;

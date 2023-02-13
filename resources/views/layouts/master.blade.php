@@ -52,13 +52,13 @@
         }
     });
     $("#addCart").click(function(e){
-        var number = $("input[name=number]").val();
         e.preventDefault();
+        var number = $("input[name=number]").val();
         if(document.getElementsByClassName('sizes-all active').length == 0){
             document.getElementById('error-msg').innerHTML='Choose size of product';
         }else if(document.getElementsByClassName('colorall active').length == 0){
             document.getElementById('error-msg').innerHTML='Choose color of product';
-        }else if(number==0 || number==null) {
+        }else if(number==0 || number=="") {
             document.getElementById('error-msg').innerHTML='Choose quantity more than 0';
         }else{
             var size_id = document.getElementsByClassName('sizes-all active')[0].value;
@@ -76,12 +76,40 @@
                     alert('Selected product successfully added to cart.');
                 },
                 error: function () {
-                    alert("error");
+                    alert("Error");
                 }
             });
             document.getElementById('error-msg').innerHTML='';
         }
     });
+
+    $("#checkCoupon").click(function(e){
+            e.preventDefault();
+            var coupon = $("input[name=coupon]").val();
+            if(coupon=="") {
+                document.getElementById('error-msg').innerHTML='This field is required';
+            }else{
+                $.ajax({
+                    type:'POST',
+                    url:"{{ route('checkCoupon') }}",
+                    data:{coupon:coupon},
+                    success:function(data){
+                        if (data.status==1) {
+                            alert('Coupon successfully applied.');
+                            document.getElementById('couponDiscount').innerHTML=data.discount;
+                        }else{
+                            alert('Error! Coupon is invalid.');
+                            document.getElementById('couponDiscount').innerHTML=0;
+                        }
+                    },
+                    error: function () {
+                        alert("Error");
+                    }
+                });
+                document.getElementById('error-msg').innerHTML='';
+            }
+        });
+
 </script>
 
 </body>
