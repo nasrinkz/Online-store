@@ -70,10 +70,14 @@
                 url:"{{ route('addCart') }}",
                 data:{size_id:size_id,color_id:color_id,number:number,product_id:product_id,userIP:userIP},
                 success:function(data){
-                    var cartNumber =Number($("input[name=cartNumber]").val()) + 1;
-                    $("input[name=cartNumber]").val(cartNumber);
-                    document.getElementById('cartNumber').innerHTML=cartNumber;
-                    alert('Selected product successfully added to cart.');
+                    if (data.status==1) {
+                        alert('Selected product successfully added to cart.');
+                    }else{
+                        var cartNumber =Number($("input[name=cartNumber]").val()) + 1;
+                        $("input[name=cartNumber]").val(cartNumber);
+                        document.getElementById('cartNumber').innerHTML=cartNumber;
+                        alert('Selected product successfully added to cart.');
+                    }
                 },
                 error: function () {
                     alert("Error");

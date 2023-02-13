@@ -40,8 +40,8 @@ class OrderController extends Controller
     }
 
     public function addCart(Request $request){
-        $this->order->addCart($request);
-        return back()->with(['success' => 'New brand successfully added.']);
+        $status = $this->order->addCart($request);
+        return response()->json(['status' => $status]);
     }
 
     public function cartList(){

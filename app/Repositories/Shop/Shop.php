@@ -114,17 +114,29 @@ class Shop implements IShop
         ]);
         $data = $request->all();
 
-        $row = new Cart();
-        $row->size_id = $data['size_id'];
-        $row->color_id = $data['color_id'];
-        $row->number = $data['number'];
-        $row->product_id = $data['product_id'];
-        $row->userIP = $data['userIP'];
         if (Auth::check()){
-            $row->user_id = auth()->user()->id;
+            $value = Cart::where(['size_id'=>$data['size_id'],'color_id'=>$data['color_id'],'product_id'=>$data['product_id'],'user_id'=>auth()->user()->id])->first();
+        }else{
+            $value = Cart::where(['size_id'=>$data['size_id'],'color_id'=>$data['color_id'],'product_id'=>$data['product_id'],'userIP'=>$data['userIP'],'user_id'=>null])->first();
         }
-        $row->save();
-        return True;
+        if($value){
+            Cart::where(['id'=>$value->id])->update([
+                'number' => $value->number+$data['number']
+            ]);
+            return 1;
+        }else{
+            $row = new Cart();
+            $row->size_id = $data['size_id'];
+            $row->color_id = $data['color_id'];
+            $row->number = $data['number'];
+            $row->product_id = $data['product_id'];
+            $row->userIP = $data['userIP'];
+            if (Auth::check()){
+                $row->user_id = auth()->user()->id;
+            }
+            $row->save();
+            return 2;
+        }
     }
 
     function cartList(){
