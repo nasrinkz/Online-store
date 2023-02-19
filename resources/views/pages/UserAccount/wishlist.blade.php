@@ -23,7 +23,7 @@
                         <ul class="list-inline">
                             <li class="list-inline-item"><a href="{{route('UserDashboard')}}">Account
                                     settings</a></li>
-                            <li class="list-inline-item"><a href="deliver-info.blade.php">Deliver information</a></li>
+                            <li class="list-inline-item"><a href="{{route('EditMyAddress')}}">Deliver information</a></li>
                             <li class="list-inline-item"><a href="{{route('wishList')}}" class="active">My wishlist</a></li>
                             <li class="list-inline-item"><a href="{{route('cartList')}}">My cart</a></li>
                             <li class="list-inline-item"><a href="order.blade.php">Order</a></li>
