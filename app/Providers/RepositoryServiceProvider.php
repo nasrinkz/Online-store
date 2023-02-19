@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\User\ProfileController;
+use App\Http\Controllers\User\AddressController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthenticationController;
 use App\Repositories\Brand\Brands;
@@ -47,7 +48,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->when([AdminController::class,AuthenticationController::class,ProfileController::class])->needs(IUsers::class)->give(function () {
                 return new Authentication();
             });
-        $this->app->when(UserController::class)->needs(IUsers::class)->give(function () {
+        $this->app->when([UserController::class,AddressController::class])->needs(IUsers::class)->give(function () {
             return new Users();
         });
         $this->app->bind(IProvinces::class,Provinces::class);

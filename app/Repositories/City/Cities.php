@@ -31,7 +31,7 @@ class Cities implements ICities
         }
         else $dataTableInfo="";
 
-        $provinces=Province::whereStatus(1)->orderBy('title')->get();
+        $provinces=Province::whereStatus('1')->orderBy('title')->get();
 
         return [$values,$dataTableInfo,$provinces];
     }

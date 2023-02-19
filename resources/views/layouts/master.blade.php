@@ -27,14 +27,41 @@
 @yield('content')
 @include('layouts.footer')
 
-<script src="{{asset('src/js/jquery.min.js')}}"></script>
+{{--<script src="{{asset('src/js/jquery.min.js')}}"></script>--}}
 <script src="{{asset('src/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('src/scss/vendors/plugin/js/slick.min.js')}}"></script>
 <script src="{{asset('src/scss/vendors/plugin/js/jquery.exzoom.js')}}"></script>
 <script src="{{asset('src/scss/vendors/plugin/js/jquery.nice-select.min.js')}}"></script>
 <script src="{{asset('dist/main.js')}}"></script>
-
+<script src="{{asset('admin/plugins/jquery/jquery.min.js')}}"></script>
 <script type="text/javascript">
+    $(document).ready(function() {
+        $('#province').on('change', function () {
+            var provinceID = $(this).val();
+            if (provinceID) {
+                $.ajax({
+                    url: '/FetchCity/' + provinceID,
+                    type: "GET",
+                    data: {"_token": "{{ csrf_token() }}"},
+                    dataType: "json",
+                    async : false,
+                    success: function (data) {
+                        if (data) {
+                            $('#city').empty();
+                            $('#city').append('<option value="" disabled selected>Select city</option>');
+                            $.each(data, function (key, course) {
+                                $("#city").append('<option value="' + course.id + '">' + course.title + '</option>');
+                            });
+                        } else {
+                            $('#city').append('<option value="" disabled selected>Select city</option>');
+                        }
+                    }
+                });
+            } else {
+                $('#city').empty();
+            }
+        });
+    });
         function openNav() {
 
             document.getElementById("mySidenav").style.width = "350px";

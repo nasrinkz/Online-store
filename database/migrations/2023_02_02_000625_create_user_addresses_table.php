@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('user_addresses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade')->nullable();
             $table->string('address')->nullable();
             $table->string('zipCode')->nullable();
-            $table->foreignId('province_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('city_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('province_id')->default(null)->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('city_id')->default(null)->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

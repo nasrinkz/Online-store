@@ -76,7 +76,7 @@ $(document).ready(function() {
         var provinceID = $(this).val();
         if (provinceID) {
             $.ajax({
-                url: '/AdminDashboard/FetchCity/' + provinceID,
+                url: '/FetchCity/' + provinceID,
                 type: "GET",
                 data: {"_token": "{{ csrf_token() }}"},
                 dataType: "json",
@@ -85,7 +85,7 @@ $(document).ready(function() {
                         $('#city').empty();
                         $('#city').append('<option value="" disabled selected>Select city</option>');
                         $.each(data, function (key, course) {
-                            $('select[name="city_id"]').append('<option value="' + key + '">' + course.title + '</option>');
+                            $('#city').append('<option value="' + course.id + '">' + course.title + '</option>');
                         });
                     } else {
                         $('#city').append('<option value="" disabled selected>Select city</option>');

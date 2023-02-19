@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\OrderController;
+use App\Http\Controllers\User\AddressController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ShoppingController;
 
@@ -48,6 +49,7 @@ Route::post('/addCart', [OrderController::class,'addCart'])->name('addCart');
 Route::get('/cartList', [OrderController::class,'cartList'])->name('cartList');
 Route::get('/removeFromCart/{id}', [OrderController::class,'removeFromCart'])->name('removeFromCart');
 Route::post('/checkCoupon', [OrderController::class,'checkCoupon'])->name('checkCoupon');
+Route::get('/FetchCity/{id}', [UserController::class,'fetchCity'])->name('FetchCity');
 
 Route::group(['namespace'=>'UserAccount','middleware'=>'checkUserLogin','prefix'=>'UserDashboard'],function () {
     Route::get('', [ProfileController::class,'show'])->name('UserDashboard');
@@ -57,6 +59,8 @@ Route::group(['namespace'=>'UserAccount','middleware'=>'checkUserLogin','prefix'
     Route::get('/removeWish/{productId}', [OrderController::class,'removeWish'])->name('removeWish');
     Route::get('/wishList', [OrderController::class,'wishList'])->name('wishList');
     Route::get('/removeWishFromList/{productId}', [OrderController::class,'removeWishFromList'])->name('removeWishFromList');
+    Route::get('/MyAddress', [AddressController::class,'editUserAddress'])->name('EditMyAddress');
+    Route::put('/UpdateUserAddress/{id}', [UserController::class,'updateUserAddress'])->name('UpdateMyAddress');
 });
 
 Route::group(['namespace'=>'admin/pages','middleware'=>'checkAdminLogin','prefix'=>'AdminDashboard'],function () {
@@ -87,7 +91,6 @@ Route::group(['namespace'=>'admin/pages','middleware'=>'checkAdminLogin','prefix
     Route::get('/ChangeUserStatus/{id}/{status}', [UserController::class,'editStatus'])->name('ChangeUserStatus');
     Route::get('/EditUser/{id}', [UserController::class,'edit'])->name('EditUser');
     Route::put('/UpdateUser/{id}', [UserController::class,'update'])->name('UpdateUser');
-    Route::get('/FetchCity/{id}', [UserController::class,'fetchCity'])->name('FetchCity');
     Route::get('/UserAddress/{id}', [UserController::class,'editUserAddress'])->name('EditUserAddress');
     Route::put('/UpdateUserAddress/{id}', [UserController::class,'updateUserAddress'])->name('UpdateUserAddress');
 
